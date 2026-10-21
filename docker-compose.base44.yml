@@ -1,0 +1,47 @@
+# Base44 sandbox setup for LETRION (development only).
+#
+# Runs the Express sync server from the cloned source with a live-reload dev
+# command (`node --watch server.js`), so edits to server.js restart the server
+# and edits to public/* are served straight from the repo.
+#
+# The app has no external services: the "database" is the JSON file
+# data/banco de dados.txt, written by the server itself. No credentials needed.
+
+services:
+  web:
+    image: node:22
+    working_dir: /app
+    command: ["sh", "-ec", "npm install --no-audit --no-fund --no-package-lock && exec node --watch server.js"]
+    volumes:
+      # Source, public assets and the data/ DB file come from the checkout.
+      - ./:/app
+      # Dependencies live in a named volume: node_modules from the sandbox
+      # filesystem is slow and would leak into the repo.
+      - letrion_node_modules:/app/node_modules
+    environment:
+      - PORT=3000
+      - MAX_BODY_MB=8
+      - NODE_ENV=development
+      # Provided by the platform; the server does not need it, but keep it
+      # available for future sandbox-only conditionals.
+      - BASE44_PREVIEW_MODE
+    ports:
+      - "3000:3000"
+    restart: on-failure
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    labels:
+      base44.project: "LETRION"
+      base44.kind: "web"
+      base44.port: "3000"
+
+volumes:
+  letrion_node_modules:
