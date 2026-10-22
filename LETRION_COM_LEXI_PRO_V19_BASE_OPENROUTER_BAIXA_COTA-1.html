@@ -2589,6 +2589,9 @@ FORMATO:
 
   window.openLexi=function(){refreshLetrionContext(true);const m=document.getElementById('lexiModal');m.classList.add('open');m.setAttribute('aria-hidden','false');setTimeout(()=>{document.getElementById('lexiInput').focus();},30)};
   window.closeLexi=function(){const m=document.getElementById('lexiModal');m.classList.remove('open');m.setAttribute('aria-hidden','true')};
+  // Exposto em window: o script "lexi-v2-menu-behavior" observa mudanças de tela
+  // fora deste escopo e precisa revalidar o contexto da Lexi.
+  window.refreshLetrionContext=refreshLetrionContext;
 
   function lexiAppContext(){
     try{const u=typeof user==='function'?user():null;const ctx={rota:typeof UI!=='undefined'?UI.route:'',ano:u?.year||null,bimestre:u?.bimestre||null,liçõesConcluidas:u?.dailyPackages?.filter(p=>p.status==='completed').length||0,letrins:u?.coins||0,nivel:u?.level||null};return '\nCONTEXTO DO APLICATIVO LETRION: '+JSON.stringify(ctx)+'\nVocê é a Lexi e possui controle funcional do aplicativo. Quando o aluno pedir navegação, use as ações de controle disponíveis; quando pedir conteúdo, respeite o ano/bimestre atual. Nunca altere progresso, recompensas ou dados sensíveis sem uma ação explícita do aluno.'}catch(_){return ''}

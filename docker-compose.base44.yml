@@ -1,0 +1,139 @@
+# Base44 sandbox setup for LETRION (development only).
+#
+# The app is a single self-contained HTML file at the repository root:
+#
+#   LETRION_COM_LEXI_PRO_V19_BASE_OPENROUTER_BAIXA_COTA-1.html
+#
+# It carries its own CSS, JavaScript and the pre-loaded lesson bank, keeps its
+# data in localStorage and has no build step and no backend, so the sandbox only
+# needs a static dev server that serves THE CLONED SOURCE from the bind mount.
+# Files are read per request, so any edit to the HTML is visible on the next
+# reload without restarting the container.
+#
+# The tiny server below lives in /tmp inside the container (never in the repo).
+# It maps the site root `/` to the app file, serves any other real file from the
+# checkout (e.g. a future imagems/ asset) and falls back to the app file for
+# extension-less paths, so deep links and unknown routes still land on the app
+# instead of the old server's HTML-for-everything behaviour.
+
+services:
+  web:
+    image: node:22
+    working_dir: /app
+    command:
+      - sh
+      - -ec
+      - |
+        cat > /tmp/base44-static.js <<'JS'
+        const http = require('node:http');
+        const fs = require('node:fs');
+        const path = require('node:path');
+
+        const ROOT = process.env.ROOT_DIR || '/app';
+        const PORT = Number(process.env.PORT || 3000);
+        // Which file is the app: an explicit APP_FILE wins, then index.html,
+        // then the last .html at the root by name - so re-uploading the app
+        // under a new version name keeps working without editing this file.
+        function appFile() {
+          const named = process.env.APP_FILE && path.join(ROOT, process.env.APP_FILE);
+          if (named && fs.existsSync(named)) return named;
+          const index = path.join(ROOT, 'index.html');
+          if (fs.existsSync(index)) return index;
+          const htmls = fs.readdirSync(ROOT)
+            .filter(f => f.toLowerCase().endsWith('.html')).sort();
+          if (!htmls.length) throw new Error('No .html app file found in ' + ROOT);
+          return path.join(ROOT, htmls[htmls.length - 1]);
+        }
+
+        const TYPES = {
+          '.html': 'text/html; charset=utf-8',
+          '.js': 'text/javascript; charset=utf-8',
+          '.css': 'text/css; charset=utf-8',
+          '.json': 'application/json; charset=utf-8',
+          '.txt': 'text/plain; charset=utf-8',
+          '.svg': 'image/svg+xml',
+          '.png': 'image/png',
+          '.jpg': 'image/jpeg',
+          '.jpeg': 'image/jpeg',
+          '.webp': 'image/webp',
+          '.ico': 'image/x-icon',
+          '.woff': 'font/woff',
+          '.woff2': 'font/woff2'
+        };
+
+        function sendFile(res, file, code) {
+          const type = TYPES[path.extname(file).toLowerCase()] || 'application/octet-stream';
+          res.writeHead(code || 200, {
+            'Content-Type': type,
+            'Cache-Control': 'no-store'
+          });
+          fs.createReadStream(file).on('error', () => res.end()).pipe(res);
+        }
+
+        const server = http.createServer((req, res) => {
+          if (req.method !== 'GET' && req.method !== 'HEAD') {
+            res.writeHead(405, { 'Content-Type': 'text/plain; charset=utf-8' });
+            return res.end('Method not allowed');
+          }
+
+          let pathname = '/';
+          try {
+            pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+          } catch (_) { /* keep '/' */ }
+
+          const target = path.resolve(ROOT, '.' + pathname);
+
+          if (pathname === '/' || pathname === '') return sendFile(res, appFile());
+
+          if (target !== ROOT && !target.startsWith(ROOT + path.sep)) {
+            res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
+            return res.end('Forbidden');
+          }
+
+          fs.stat(target, (err, stat) => {
+            if (!err && stat.isFile()) return sendFile(res, target);
+            if (!err && stat.isDirectory()) {
+              const index = path.join(target, 'index.html');
+              if (fs.existsSync(index)) return sendFile(res, index);
+            }
+            const wantsHtml = String(req.headers.accept || '').includes('text/html');
+            if (wantsHtml || !path.extname(pathname)) return sendFile(res, appFile());
+            res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+            res.end('Not found: ' + pathname);
+          });
+        });
+
+        server.listen(PORT, '0.0.0.0', () => {
+          // String concatenation on purpose: compose interprets dollar-brace
+          // tokens even inside this block scalar, so template literals would
+          // be mangled here. Keep this script free of dollar signs.
+          console.log('LETRION dev server on port ' + PORT + ' serving ' + appFile());
+        });
+        JS
+        exec node /tmp/base44-static.js
+    volumes:
+      # The whole checkout, so edits to the HTML show up without a rebuild.
+      - ./:/app
+    environment:
+      - PORT=3000
+      - ROOT_DIR=/app
+      - NODE_ENV=development
+      # Provided by the platform; kept available for sandbox-only conditionals.
+      - BASE44_PREVIEW_MODE
+    ports:
+      - "3000:3000"
+    restart: on-failure
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    labels:
+      base44.project: "LETRION"
+      base44.kind: "web"
+      base44.port: "3000"
