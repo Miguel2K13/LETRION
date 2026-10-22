@@ -1,9 +1,0 @@
-{
-  "version": 1,
-  "app": "LETRION",
-  "updatedAt": 0,
-  "devices": {},
-  "users": {},
-  "userDatabase": {},
-  "stateMeta": {}
-}
