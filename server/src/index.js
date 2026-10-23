@@ -239,8 +239,26 @@ app.post('/api/auth/logout', async (req, res, next) => {
   }
 });
 
-app.get('/api/auth/me', requireAuth, (req, res) => {
-  res.json({ user: publicUser(req.userRow) });
+/* Sessão atual. Responde SEMPRE 200: visitante sem sessão recebe `user: null`,
+   então o app descobre se há login sem deixar erro no console do navegador. */
+app.get('/api/auth/me', async (req, res, next) => {
+  try {
+    const token = req.cookies?.[COOKIE_NAME];
+    if (!token) return res.json({ user: null });
+    const { rows } = await pool.query(
+      `SELECT u.*, s.expires_at FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token_hash = $1`,
+      [sha256(token)]
+    );
+    const row = rows[0];
+    if (!row || new Date(row.expires_at).getTime() < Date.now()) {
+      if (row) await pool.query('DELETE FROM sessions WHERE token_hash = $1', [sha256(token)]);
+      res.clearCookie(COOKIE_NAME, { path: '/' });
+      return res.json({ user: null });
+    }
+    return res.json({ user: publicUser(row) });
+  } catch (error) {
+    return next(error);
+  }
 });
 
 /* ---------- progresso do usuário ---------- */

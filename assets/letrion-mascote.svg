@@ -1,6 +1,8 @@
-# Mascote oficial do LETRION (arquivo próprio, servido por /assets/letrion-mascote.svg).
-# Substitua este arquivo por sua arte definitiva mantendo o mesmo nome, ou
-# ajuste o atributo src da imagem em renderAuth() no HTML do app.
+<!-- Mascote oficial do LETRION (arquivo próprio, servido por /assets/letrion-mascote.svg).
+     Substitua este arquivo pela arte definitiva mantendo o mesmo nome, ou ajuste
+     o atributo src da imagem em renderAuth() no HTML do app.
+     Atenção: só comentários XML (<!-- -->) podem vir antes de <svg>, senão o
+     navegador não consegue interpretar o arquivo como imagem. -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" width="360" height="520" role="img" aria-label="Mascote do LETRION com um livro aberto">
   <defs>
     <linearGradient id="bodyGrad" x1="0" y1="0" x2="0.35" y2="1">

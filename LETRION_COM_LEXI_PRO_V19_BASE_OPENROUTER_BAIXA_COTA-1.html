@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#5B5CF0">
+<link rel="icon" type="image/svg+xml" href="/assets/letrion-mascote.svg">
 <meta name="description" content="LETRION — Aprenda. Evolua. Conquiste.">
 <title>LETRION — Aprenda. Evolua. Conquiste.</title>
 <style>
@@ -2391,6 +2392,8 @@ document.head.appendChild(letrionV9Style);
   async function restoreSession(){
     try{
       const me=await request('/auth/me');
+      /* visitante sem sessão: o servidor responde 200 com user:null */
+      if(!me.user){sessionUser=null;State.currentUserId=null;return null}
       sessionUser=me.user;
       const saved=await request('/me/state');
       const u=adopt(me.user,saved.state||{});

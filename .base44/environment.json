@@ -2,5 +2,16 @@
   "previewPort": 3000,
   "healthPath": "/",
   "startCommand": "docker compose -f docker-compose.base44.yml up -d",
-  "secrets": []
+  "secrets": [
+    {
+      "name": "OPENROUTER_API_KEY",
+      "description": "Chave da OpenRouter usada pela Lexi no servidor (POST /api/ai/lesson). Sem ela a Lexi responde 503. Obtenha em https://openrouter.ai/keys.",
+      "requiredAtBoot": false
+    },
+    {
+      "name": "GOOGLE_API_KEY",
+      "description": "Chave da Google AI usada pelo chat da Lexi no servidor (POST /api/ai/stream). Sem ela a Lexi responde 503. Obtenha em https://aistudio.google.com/apikey.",
+      "requiredAtBoot": false
+    }
+  ]
 }
