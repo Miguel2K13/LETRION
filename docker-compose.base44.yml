@@ -1,0 +1,29 @@
+# Base44 sandbox environment for LETRION.
+#
+# The application is a single self-contained HTML file (no build step, no
+# backend, no database), so the cloned source is served as-is by nginx.
+# Source edits are visible on the next request — no image rebuild needed.
+services:
+  web:
+    image: nginx:alpine          # plain runtime image; never a prebuilt app image
+    restart: on-failure
+    ports:
+      - "3000:80"                # user-facing entry point (host port 3000)
+    volumes:
+      # the single HTML file is the whole app: mount it as the site index.
+      # (a directory bind mount also carries the sandbox's 0700 mode on the
+      # repo root, which nginx cannot traverse). Edits are picked up on reload
+      # because the file is rewritten in place.
+      - ./LETRION_COM_LEXI_PRO_V19_BASE_OPENROUTER_BAIXA_COTA-1.html:/srv/app/index.html:ro
+      - ./nginx.base44.conf:/etc/nginx/conf.d/default.conf:ro
+    labels:
+      base44.project: "LETRION"
+      base44.kind: "web"
+      base44.port: "3000"
+    healthcheck:
+      # real responsiveness: the page must actually be served with the app markup
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ | grep -q LETRION || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 10s
