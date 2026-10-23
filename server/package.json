@@ -1,0 +1,21 @@
+{
+  "name": "letrion-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "API e banco de dados do LETRION: contas, senhas hasheadas, progresso, lições e proxy da Lexi.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "migrate": "node db/migrate.mjs",
+    "seed": "node db/seed.mjs"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "cookie-parser": "1.4.7",
+    "express": "4.21.2",
+    "pg": "8.13.1"
+  }
+}

@@ -1,29 +1,115 @@
 # Base44 sandbox environment for LETRION.
 #
-# The application is a single self-contained HTML file (no build step, no
-# backend, no database), so the cloned source is served as-is by nginx.
-# Source edits are visible on the next request — no image rebuild needed.
+# O app é um único HTML autocontido (sem build) servido pelo nginx; a partir
+# daqui ele também conversa com uma API própria (Node/Express + Postgres) que
+# guarda contas, senhas hasheadas, progresso e o banco de lições, e que é a
+# única parte que conhece as chaves de IA da Lexi.
+#
+#   web   -> :3000 (nginx) serve o HTML e faz proxy de /api/ para a API
+#   api   -> Express + Postgres (contas, sessões, progresso, lições, Lexi)
+#   setup -> migrações + seed do banco (roda uma vez e sai)
+#   db    -> Postgres
 services:
+  db:
+    image: postgres:16-alpine
+    restart: on-failure
+    environment:
+      POSTGRES_USER: letrion
+      POSTGRES_PASSWORD: letrion_dev_password
+      POSTGRES_DB: letrion
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U letrion -d letrion"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    labels:
+      base44.project: "LETRION"
+      base44.kind: "infra"
+
+  setup:
+    image: node:22-alpine
+    working_dir: /app
+    # instala as dependências a partir do lockfile e prepara o banco (migrações + seed)
+    command: ["sh", "-ec", "if [ -f package-lock.json ]; then npm ci --no-audit --no-fund --loglevel=error; else npm install --no-audit --no-fund --loglevel=error; fi && node db/migrate.mjs && node db/seed.mjs"]
+    volumes:
+      - ./server:/app
+      - server_node_modules:/app/node_modules
+      # o seed importa o banco de lições a partir do próprio HTML do app
+      - ./LETRION_COM_LEXI_PRO_V19_BASE_OPENROUTER_BAIXA_COTA-1.html:/bank/source.html:ro
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgres://letrion:letrion_dev_password@db:5432/letrion
+      - BANK_SOURCE=/bank/source.html
+      - BASE44_PREVIEW_MODE
+    depends_on:
+      db:
+        condition: service_healthy
+    labels:
+      base44.project: "LETRION"
+      base44.kind: "infra"
+
+  api:
+    image: node:22-alpine
+    restart: on-failure
+    working_dir: /app
+    command: ["sh", "-ec", "npm install --no-audit --no-fund --loglevel=error && exec node --watch src/index.js"]
+    volumes:
+      - ./server:/app
+      - server_node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DATABASE_URL=postgres://letrion:letrion_dev_password@db:5432/letrion
+      - BASE44_PREVIEW_MODE
+    env_file:
+      # defaults versionados primeiro; os segredos da plataforma vêm depois e vencem
+      - ./.env.base44-defaults
+      - /run/base44/app.env
+    depends_on:
+      db:
+        condition: service_healthy
+      setup:
+        condition: service_completed_successfully
+    labels:
+      base44.project: "LETRION"
+      base44.kind: "api"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/api/health >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
+
   web:
-    image: nginx:alpine          # plain runtime image; never a prebuilt app image
+    image: nginx:alpine
     restart: on-failure
     ports:
-      - "3000:80"                # user-facing entry point (host port 3000)
+      - "3000:80"          # user-facing entry point (host port 3000)
     volumes:
-      # the single HTML file is the whole app: mount it as the site index.
-      # (a directory bind mount also carries the sandbox's 0700 mode on the
-      # repo root, which nginx cannot traverse). Edits are picked up on reload
-      # because the file is rewritten in place.
+      # o HTML é o app inteiro: montado como índice do site.
+      # (um bind mount do diretório traria o modo 0700 da raiz do repositório,
+      # que o nginx não consegue atravessar)
       - ./LETRION_COM_LEXI_PRO_V19_BASE_OPENROUTER_BAIXA_COTA-1.html:/srv/app/index.html:ro
+      - ./assets:/srv/app/assets:ro
       - ./nginx.base44.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      api:
+        condition: service_started
     labels:
       base44.project: "LETRION"
       base44.kind: "web"
       base44.port: "3000"
     healthcheck:
-      # real responsiveness: the page must actually be served with the app markup
-      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ | grep -q LETRION || exit 1"]
+      # front-end E back-end: a página precisa responder e a API precisa estar viva
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ | grep -q LETRION && wget -qO- http://127.0.0.1/api/health | grep -q '\"ok\":true' || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 6
-      start_period: 10s
+      start_period: 40s
+
+volumes:
+  db_data:
+  server_node_modules:

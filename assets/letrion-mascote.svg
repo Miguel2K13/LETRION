@@ -1,0 +1,54 @@
+# Mascote oficial do LETRION (arquivo próprio, servido por /assets/letrion-mascote.svg).
+# Substitua este arquivo por sua arte definitiva mantendo o mesmo nome, ou
+# ajuste o atributo src da imagem em renderAuth() no HTML do app.
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" width="360" height="520" role="img" aria-label="Mascote do LETRION com um livro aberto">
+  <defs>
+    <linearGradient id="bodyGrad" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#FFFBF2"/>
+      <stop offset="1" stop-color="#F0E0C6"/>
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5B5CF0"/>
+      <stop offset="1" stop-color="#2A2B72"/>
+    </linearGradient>
+    <linearGradient id="bookGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D7DDF3"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#FFC46B" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFC46B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="180" cy="476" rx="112" ry="20" fill="#0B1030" opacity="0.30"/>
+  <circle cx="180" cy="250" r="168" fill="url(#glow)"/>
+
+  <path d="M104 106 84 46l62 30Z" fill="url(#bodyGrad)" stroke="#312E5C" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M256 106l20-60-62 30Z" fill="url(#bodyGrad)" stroke="#312E5C" stroke-width="6" stroke-linejoin="round"/>
+
+  <path d="M180 74c60 0 108 58 108 140 0 88-48 150-108 150S72 302 72 214C72 132 120 74 180 74Z" fill="url(#bodyGrad)" stroke="#312E5C" stroke-width="6" stroke-linejoin="round"/>
+
+  <path d="M78 244c-14 34-8 78 20 100 14-30 14-70 2-100Z" fill="#E7D5B6" stroke="#312E5C" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M282 244c14 34 8 78-20 100-14-30-14-70-2-100Z" fill="#E7D5B6" stroke="#312E5C" stroke-width="6" stroke-linejoin="round"/>
+
+  <circle cx="138" cy="196" r="34" fill="#FFFFFF" stroke="#312E5C" stroke-width="6"/>
+  <circle cx="222" cy="196" r="34" fill="#FFFFFF" stroke="#312E5C" stroke-width="6"/>
+  <circle cx="146" cy="198" r="14" fill="#2B2A5E"/>
+  <circle cx="230" cy="198" r="14" fill="#2B2A5E"/>
+  <circle cx="141" cy="191" r="5" fill="#FFFFFF"/>
+  <circle cx="225" cy="191" r="5" fill="#FFFFFF"/>
+
+  <path d="M180 226l24 26-24 20-24-20Z" fill="#FF785B" stroke="#C34A31" stroke-width="5" stroke-linejoin="round"/>
+
+  <path d="M180 30l104 38-104 38-104-38Z" fill="url(#capGrad)" stroke="#20215C" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M284 70v68" stroke="#FFD166" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="284" cy="148" r="12" fill="#FFD166" stroke="#B98A17" stroke-width="4"/>
+
+  <path d="M62 352c34-14 76-14 110 0v82c-34-14-76-14-110 0Z" fill="url(#bookGrad)" stroke="#312E5C" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M298 352c-34-14-76-14-110 0v82c34-14 76-14 110 0Z" fill="url(#bookGrad)" stroke="#312E5C" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M96 372c24-6 48-6 68 2M264 372c-24-6-48-6-68 2" stroke="#B9C0DE" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+  <path d="M132 448l-18 22h44Z" fill="#FF785B" stroke="#C34A31" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M228 448l18 22h-44Z" fill="#FF785B" stroke="#C34A31" stroke-width="5" stroke-linejoin="round"/>
+</svg>
