@@ -22,6 +22,11 @@ curl -s -o /dev/null -w '%{http_code}\n' http://localhost:3000/loja/    # 200 �
 ```
 
 - `build-store` — serviço de uma vez só (`node scripts/build-store.mjs`) que gera `www/`.
+- `store-watcher` — vigia o HTML, `publish/store-runtime.js` e `imagens/` e roda o
+  `build-store` de novo a cada alteração (polling de 1s: bind mount não entrega eventos
+  confiáveis no container). É o que mantém `/loja/` atualizado sem rebuild manual — o
+  link público mostra a versão nova em segundos. Para forçar na hora:
+  `docker compose -f docker-compose.base44.yml exec store-watcher node scripts/build-store.mjs`.
 - `web` — nginx (`nginx.base44.conf`) na porta **3000**: `/` serve o HTML fonte,
   `/loja/` serve o pacote publicado de `www/`.
 

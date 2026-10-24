@@ -6,6 +6,8 @@
 #
 # O app é um único arquivo HTML autocontido: não há bundler nem hot reload.
 # Depois de editar o HTML, chame `reload_preview` para ver a mudança.
+# O serviço `store-watcher` regenera `www/` sozinho a cada alteração, então `/loja/`
+# (o link público) também acompanha — sem rebuild manual.
 services:
   # Serviço de uma vez só: gera `www/` (a versão que vai para as lojas).
   build-store:
@@ -15,6 +17,30 @@ services:
       - ./:/srv/app
     command: ["node", "scripts/build-store.mjs"]
     restart: "no"
+
+  # Vigia o app: toda alteração no HTML (ou no runtime/imagens) reconstrói `www/`
+  # sozinha, então o link público `/loja/` acompanha as mudanças sem comando manual.
+  store-watcher:
+    image: node:22-alpine
+    working_dir: /srv/app
+    volumes:
+      - ./:/srv/app
+    command: ["node", "scripts/watch-store.mjs"]
+    depends_on:
+      build-store:
+        condition: service_completed_successfully
+    restart: on-failure
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          beat=$(cat /tmp/watch-store.heartbeat 2>/dev/null || echo 0);
+          [ $(( $(date +%s) - beat )) -lt 60 ]
+          || { echo "vigia do pacote: FALHOU"; exit 1; }
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
 
   web:
     image: nginx:alpine

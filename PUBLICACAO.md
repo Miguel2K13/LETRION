@@ -132,6 +132,12 @@ Esse endereço é de desenvolvimento: vale para testar com algumas pessoas agora
 muda quando o ambiente é recriado. Para um link fixo e definitivo, use uma das
 opções da tabela acima (o Netlify Drop leva ~2 minutos).
 
+**Atualizar o link depois de mexer no app:** `/loja/` serve a pasta `www/`, que é
+gerada. O serviço `store-watcher` refaz o build sozinho a cada alteração do HTML,
+então o link já mostra a versão nova em segundos — não precisa fazer nada. Num link
+já hospedado fora daqui, envie a pasta `www/` de novo (ou conecte o repositório no
+Netlify/Cloudflare Pages, que aí cada push atualiza o site automaticamente).
+
 ## 6. Se quiser ligar a Lexi depois
 
 Coloque a IA em um **servidor seu** (que guarda a chave e responde ao app via
