@@ -1,0 +1,13 @@
+# Dependências e artefatos de build
+node_modules/
+www/
+
+# Assinatura de loja — nunca versionar
+*.jks
+*.keystore
+*.p12
+*.mobileprovision
+*.provisionprofile
+
+# Sistema
+.DS_Store
