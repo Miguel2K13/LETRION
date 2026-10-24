@@ -119,6 +119,19 @@ estático:
 
 Use sempre a pasta `www/` (a versão publicada): ela já sai sem chaves e sem Lexi.
 
+### Link rápido, sem hospedar nada
+
+Enquanto este workspace estiver de pé, o app já responde publicamente no endereço do
+workspace (`https://3000-<BASE44_PUBLIC_HOST_SUFFIX>`), servido pelo nginx:
+
+- **compartilhe `…/loja/`** — é a versão publicada (sem chaves, sem Lexi);
+- **nunca compartilhe o endereço sem `/loja/`** — a raiz `/` é a versão de
+  desenvolvimento e tem as chaves de IA dentro do HTML.
+
+Esse endereço é de desenvolvimento: vale para testar com algumas pessoas agora e
+muda quando o ambiente é recriado. Para um link fixo e definitivo, use uma das
+opções da tabela acima (o Netlify Drop leva ~2 minutos).
+
 ## 6. Se quiser ligar a Lexi depois
 
 Coloque a IA em um **servidor seu** (que guarda a chave e responde ao app via
