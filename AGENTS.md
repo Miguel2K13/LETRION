@@ -35,7 +35,9 @@ aceita qualquer `Host`) e nenhum código do app é condicionado a essa flag.
 chamadas a `openrouter.ai` / `generativelanguage.googleapis.com` e esconde a Lexi
 (esconde `.lexi-navBtn` / `[data-action="open-lexi"]`, que são os três acessos à Lexi).
 O script **falha** se alguma chave sobrar no pacote. `www/` é gerado e está no
-`.gitignore` — o pacote publicado se reconstrói com um comando.
+`.gitignore` — o pacote publicado se reconstrói com um comando. As imagens de
+`imagens/` (o mascote da tela de entrada) são copiadas para `www/imagens/`; sem isso
+o pacote publicado pediria uma imagem que não existe.
 
 A geração de lição por IA degrada bem: `generateCurrent()` já envolve a chamada em
 `try/catch` e mantém o banco de lições pré-preparado (60 lições), que é o que o app

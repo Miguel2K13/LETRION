@@ -68,11 +68,18 @@ fs.mkdirSync(OUT_DIR, { recursive: true });
 fs.writeFileSync(path.join(OUT_DIR, 'index.html'), html);
 fs.copyFileSync(RUNTIME, path.join(OUT_DIR, 'store-runtime.js'));
 
+// imagens do app (o mascote da tela de entrada, por exemplo) vão junto no pacote
+const ASSETS = path.join(ROOT, 'imagens');
+if (fs.existsSync(ASSETS)) {
+  fs.cpSync(ASSETS, path.join(OUT_DIR, 'imagens'), { recursive: true });
+}
+
 const runtimeOut = fs.readFileSync(path.join(OUT_DIR, 'store-runtime.js'), 'utf8');
 if (!runtimeOut.includes('LETRION_STORE_BUILD')) fail('runtime sem a flag LETRION_STORE_BUILD');
 
 console.log('[build-store] www/ pronto para publicar');
 console.log('  index.html        ' + sizeMB(fs.statSync(path.join(OUT_DIR, 'index.html')).size) + ' (fonte: ' + sizeMB(sourceSize) + ')');
 console.log('  store-runtime.js  presente');
+console.log('  imagens/          ' + (fs.existsSync(path.join(OUT_DIR, 'imagens')) ? fs.readdirSync(path.join(OUT_DIR, 'imagens')).length + ' arquivo(s)' : 'ausente'));
 console.log('  chaves zeradas:   ' + KEY_CONSTANTS.join(', ') + ' (' + removedKeys.length + ' valores removidos)');
 console.log('  Lexi:             desligada — nenhuma chamada de IA sai do pacote');
