@@ -31,10 +31,13 @@ docker compose -f docker-compose.base44.yml logs -f web
 * O aluno de demonstração (`student_demo`) é apagado de propósito
   (`removeDemoStudentV8`). Para testar telas de aluno, **crie uma conta**
   pela própria tela de login (aba "Criar conta").
-* O mascote do login é um **SVG pixel art embutido no próprio HTML** (inline, sem
-  arquivo nem requisição). Não há imagens no repositório: apontar o mascote para
-  qualquer `src` externo (como o antigo `imagems/letrion-mascote.png`) volta a
-  produzir 404 no console.
+* O mascote do login é a **arte do usuário**: `imagens/letrion-mascote.png`
+  (PNG 1024×1536, RGBA) carregada por `<img class="loginMascot">`, com
+  `object-fit:contain` + `object-position:center bottom` + `mix-blend-mode:screen`
+  no CSS. O arquivo foi restaurado de `origin/login-image` nesta branch — sem ele
+  o login fica sem mascote. Em 371f569 o `<img>` foi trocado por um SVG inline
+  (pixel art 24×24) que ficou parecido com o **pato do jogo**; o usuário reclamou
+  e o `<img>` voltou. Não substituir o mascote por desenho próprio de novo.
 * A Lexi (assistente de chat, motor de lições com IA, voz e tela de boot) foi
   **removida por completo** em 25/10/2026 — não há mais chaves de API no
   repositório. O lugar dela na navegação agora é o botão **Jogos**.
