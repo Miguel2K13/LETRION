@@ -40,8 +40,10 @@
     out.g.drawImage(c, 0, 0);
     return out.c;
   }
-  /* Espelha sob demanda (o pato e o jacaré olham para os dois lados). */
-  function both(c) { return { R: c, L: mirror(c) }; }
+  /* Espelha sob demanda (o pato e o jacaré olham para os dois lados).
+     Aceita também o par {c,g} devolvido por sheet(): passar o objeto cru para
+     drawImage derruba o jogo inteiro na inicialização. */
+  function both(c) { const canvas = c && c.getContext ? c : c.c; return { R: canvas, L: mirror(canvas) }; }
 
   /* ---------- paletas ---------- */
   const P = Art.P = {
@@ -126,9 +128,10 @@
 
   Art.buildDuck = function () {
     const d = {};
-    d.idle = both(duckFrame({ bob: 0 }));
-    d.idle2 = both(duckFrame({ bob: 1 }));
-    d.blink = both(duckFrame({ bob: 1, eye: 'blink' }));
+    /* O motor alterna dois quadros de repouso: descanso e piscada. */
+    d.idle = [both(duckFrame({ bob: 0 })), both(duckFrame({ bob: 1, eye: 'blink' }))];
+    d.idle2 = d.idle[1];
+    d.blink = d.idle[1];
     d.walk = [
       duckFrame({ legs: [[4, 3, 0], [9, 3, 1]], bob: 0 }),
       duckFrame({ legs: [[5, 2, 0], [9, 3, 1]], bob: 1 }),
@@ -143,8 +146,8 @@
     ].map(both);
     d.jump = [duckFrame({ legs: [[4, 2, -1], [9, 2, -1]], wing: 2, legY: 1 }), duckFrame({ legs: [[5, 3, -1], [8, 2, -1]], wing: 2, legY: 0 })].map(both);
     d.fall = [duckFrame({ legs: [[4, 3, 0], [9, 3, 0]], wing: 0, eye: 'wide' }), duckFrame({ legs: [[4, 2, 1], [9, 2, 1]], wing: 1, eye: 'wide' })].map(both);
-    d.land = [duckFrame({ legs: [[3, 1, 0], [10, 1, 0]], bob: 1, wing: 0 })];
-    d.stomp = [duckFrame({ legs: [[3, 3, -1], [10, 3, -1]], wing: 0, bob: 1 })];
+    d.land = [duckFrame({ legs: [[3, 1, 0], [10, 1, 0]], bob: 1, wing: 0 })].map(both);
+    d.stomp = [duckFrame({ legs: [[3, 3, -1], [10, 3, -1]], wing: 0, bob: 1 })].map(both);
     d.swim = [
       duckFrame({ legs: [[5, 0, 0], [9, 0, 0]], bob: 1, legY: 4 }),
       duckFrame({ legs: [[5, 1, 1], [9, 0, -1]], bob: 2, legY: 4 }),
@@ -303,7 +306,7 @@
       box: boxes, usedBox: both(used.c),
       hiddenBox: hidden.c, revealedBox: both(revealed.c),
       flag: flag.c,
-      boxParticles: both(sheet(16, 16))
+      boxParticles: both(sheet(16, 16).c)
     };
   };
 

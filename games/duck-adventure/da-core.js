@@ -73,6 +73,8 @@ window.DA = window.DA || {};
     attach: function () {
       const self = this;
       this.enabled = true;
+      /* attach() roda a cada montagem: sem esta guarda os listeners se acumulam. */
+      if (this._onKey) { return; }
       this._onKey = function (e, down) {
         const k = e.key;
         if (k === 'ArrowLeft' || k === 'a' || k === 'A') { self.set('left', down); }
@@ -82,13 +84,21 @@ window.DA = window.DA || {};
         else { return; }
         e.preventDefault();
       };
-      window.addEventListener('keydown', function (e) { self._onKey(e, true); }, { passive: false });
-      window.addEventListener('keyup', function (e) { self._onKey(e, false); }, { passive: false });
+      this._onDown = function (e) { self._onKey(e, true); };
+      this._onUp = function (e) { self._onKey(e, false); };
+      window.addEventListener('keydown', this._onDown, { passive: false });
+      window.addEventListener('keyup', this._onUp, { passive: false });
     },
     detach: function () {
       this.enabled = false;
       this.reset();
+      /* Os handlers precisam sair junto: um _onKey nulo responderia a
+         qualquer tecla fora do jogo e quebraria a tela seguinte. */
+      if (this._onDown) { window.removeEventListener('keydown', this._onDown); }
+      if (this._onUp) { window.removeEventListener('keyup', this._onUp); }
       this._onKey = null;
+      this._onDown = null;
+      this._onUp = null;
     }
   };
 

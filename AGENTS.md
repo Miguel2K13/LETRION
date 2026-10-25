@@ -31,8 +31,10 @@ docker compose -f docker-compose.base44.yml logs -f web
 * O aluno de demonstração (`student_demo`) é apagado de propósito
   (`removeDemoStudentV8`). Para testar telas de aluno, **crie uma conta**
   pela própria tela de login (aba "Criar conta").
-* A tela de login pede `imagems/letrion-mascote.png` (e `imagens/...`): esses
-  arquivos não existem no repositório, então o console mostra 404 no login.
+* O mascote do login é um **SVG pixel art embutido no próprio HTML** (inline, sem
+  arquivo nem requisição). Não há imagens no repositório: apontar o mascote para
+  qualquer `src` externo (como o antigo `imagems/letrion-mascote.png`) volta a
+  produzir 404 no console.
 * A Lexi (assistente de chat, motor de lições com IA, voz e tela de boot) foi
   **removida por completo** em 25/10/2026 — não há mais chaves de API no
   repositório. O lugar dela na navegação agora é o botão **Jogos**.
@@ -50,6 +52,15 @@ Módulos, na ordem em que `index.html` os carrega:
   DOM (troca de rota), parando o loop e a música.
 * Save em `localStorage` (`LETRION_DUCK_ADVENTURE_V1`): fases liberadas,
   recordes e configurações de som/controles.
+* Todo quadro de animação é um par `{R, L}` produzido por `both()`. `Art.duck.idle`
+  é uma **lista** de dois quadros (o motor usa `duck.idle[Math.floor(anim*2)%2]`);
+  `land` e `stomp` também são listas de pares. Passar um `{c,g}` cru de `sheet()`
+  para `both()`/`mirror()` derruba o jogo na inicialização e a tela mostra
+  "Não foi possível carregar o jogo neste aparelho".
+* `DA.Input.attach()` é idempotente e `detach()` remove os listeners de teclado —
+  sem isso, qualquer tecla fora do jogo lança TypeError na tela seguinte.
+* O estado interno do jogo é exposto em `DA.Game._state` (`player.x`, `player.state`,
+  `time`, `objects`): é por aí que se verifica uma fase sem depender de pixels.
 * Controles: setas ou A/D, Espaço para pular, S/seta para baixo para mergulhar,
   Esc para pausar; no toque, os botões grandes embaixo do quadro.
 * Nada de imagens externas: todos os sprites, tiles e cenários são desenhados
@@ -61,4 +72,8 @@ Módulos, na ordem em que `index.html` os carrega:
 3. Menu inferior: **Jogos** (ocupou o lugar da Lexi) → Duck Adventure →
    JOGAR → a fase começa; anda, pula, abre caixa por baixo, pega fruta,
    nada, derrota jacaré por cima; Esc pausa; sair da rota para a música.
-4. Console do navegador sem erros (exceto o 404 do mascote descrito acima).
+4. Console do navegador sem erros.
+5. Em tela larga a barra superior só oferece **JOGOS**, som, notificações e o chip
+   de perfil; o menu inferior (Início/Jornada/Jogos/...) aparece abaixo de 980px.
+   Isso vem do arquivo original, não da versão Base44 — ao testar rotas no desktop,
+   navegue pelo chip de perfil ou reduza a janela.
