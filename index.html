@@ -116,78 +116,8 @@ body{background:radial-gradient(circle at 50% -10%,#0d3155 0,#061426 38%,#04101e
 @media(max-width:720px){.top{height:78px;padding:0 14px}.pageTitle:before{font-size:21px}.pageTitle:after{font-size:8px;margin-top:21px}.topRight .icon{width:43px;height:40px;border-radius:12px}.topRight .iconText{font-size:8px}.content{padding:25px 16px 96px}.section h2{font-size:31px}.section p{font-size:14px}.dailyHeroTitle{font-size:45px}.journeyMeta{font-size:13px;gap:8px 13px}.dailySummary{padding:18px;border-radius:20px}.dailySummaryTitle{font-size:21px}.dailySummaryPct{font-size:27px}.dailyLessonCard{grid-template-columns:58px 1fr;gap:13px;min-height:0;padding:17px;border-radius:21px}.dailyLessonNumber{width:58px;height:58px;border-radius:18px;font-size:18px}.dailyLessonBody h3{font-size:21px}.dailyLessonBody p{font-size:13px}.dailyLessonAction{grid-column:2;min-width:0;justify-content:flex-start;align-self:auto}.dailyLessonAction .btn{width:100%;min-height:46px}.dailyLessonCard .status{font-size:11px}}
 @media(max-width:430px){.topRight .icon:nth-child(2){display:none}.topRight{gap:5px}.userChip{box-shadow:none}.content{padding-left:13px;padding-right:13px}.dailyHeroTitle{font-size:40px}.dailySummaryTop{gap:10px}.journeyMeta{font-size:12px}}
 </style>
-<style>
-/* ===== LEXI UI INTEGRADA ===== */
-.lexi-navBtn{background:linear-gradient(135deg,#4934d9,#5148f4)!important;color:#fff!important;border-color:rgba(130,112,255,.65)!important;box-shadow:0 8px 22px rgba(73,52,217,.24)}
-.lexi-modal{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;padding:14px;background:rgba(2,6,18,.78);backdrop-filter:blur(10px)}
-.lexi-modal.open{display:flex}
-.lexi-shell{width:min(980px,100%);height:min(760px,94vh);display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(111,99,255,.55);border-radius:24px;background:linear-gradient(145deg,#071021,#101a36 58%,#090d21);box-shadow:0 24px 90px rgba(0,0,0,.58),0 0 45px rgba(91,67,255,.18);color:#eef3ff}
-.lexi-top{min-height:68px;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08)}
-.lexi-brand{display:flex;align-items:center;gap:10px}.lexi-avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;border:1px solid rgba(139,92,246,.75);background:#111936}
-.lexi-title{font-weight:850;font-size:19px}.lexi-status{font-size:11px;color:#71e3a0;margin-top:2px}.lexi-status:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#32d583;margin-right:5px}
-.lexi-close{border:0;background:transparent;color:#aebbd5;font-size:25px;cursor:pointer;padding:5px 10px}.lexi-content{flex:1;min-height:0;display:flex}.lexi-side{width:235px;padding:16px;border-right:1px solid rgba(255,255,255,.08);background:rgba(8,14,31,.52);overflow:auto}
-.lexi-side-title{font-size:12px;color:#9caaca;margin:2px 0 12px}.lexi-feature{display:flex;gap:10px;align-items:center;border:1px solid rgba(255,255,255,.07);background:rgba(22,34,62,.72);color:#eaf0ff;border-radius:13px;padding:10px;margin-bottom:8px}
-.lexi-feature-icon{width:28px;text-align:center;font-size:17px}.lexi-feature b{font-size:12px}.lexi-feature span{display:block;font-size:10px;color:#93a2c0;margin-top:2px}.lexi-main{flex:1;display:flex;flex-direction:column;min-width:0}
-.lexi-messages{flex:1;overflow:auto;padding:18px}.lexi-msg{display:flex;margin-bottom:13px}.lexi-msg.user{justify-content:flex-end}.lexi-bubble{max-width:min(78%,650px);padding:12px 14px;border-radius:16px;border:1px solid rgba(255,255,255,.08);line-height:1.5;white-space:pre-wrap;font-size:14px;background:linear-gradient(145deg,#132342,#101a31)}
-.lexi-msg.user .lexi-bubble{background:linear-gradient(145deg,#4934d9,#5148f4);border-color:rgba(146,132,255,.45)}.lexi-composer{padding:12px 15px 15px;border-top:1px solid rgba(255,255,255,.08);background:rgba(6,11,25,.82)}
-.lexi-input-row{display:flex;gap:9px;align-items:flex-end}#lexiInput{flex:1;min-height:48px;max-height:130px;resize:none;border:1px solid rgba(122,110,255,.35);border-radius:15px;padding:12px 13px;background:#0c1630;color:#eef3ff;outline:none;font:inherit}#lexiInput:focus{border-color:#7567ff;box-shadow:0 0 0 3px rgba(117,103,255,.12)}
-#lexiSend{width:48px;height:48px;border:0;border-radius:15px;cursor:pointer;background:linear-gradient(135deg,#5b45ff,#765cff);color:#fff;font-size:20px}#lexiSend:disabled{opacity:.55;cursor:not-allowed}.lexi-tip{text-align:center;color:#72809b;font-size:10px;margin-top:7px}
-.lexi-welcome{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;color:#aab8d2}.lexi-welcome-logo{width:82px;height:82px;border-radius:22px;object-fit:cover;margin-bottom:13px;border:1px solid #594cff}.lexi-welcome h2{margin:0 0 7px;color:#fff}.lexi-welcome p{max-width:500px;margin:0;line-height:1.5}
-@media(max-width:720px){.lexi-side{display:none}.lexi-shell{height:100%;max-height:none;border-radius:17px}.lexi-bubble{max-width:88%}}
-</style>
-<style id="lexi-pro-css">
-/* ===== LEXI PRO — uma camada, sem markdown visual e com carregamento ===== */
-#lexiModal{padding:0;background:rgba(4,7,15,.84);backdrop-filter:blur(12px)}
-.lexi-shell{width:100%;height:100%;max-width:none;max-height:none;border:0;border-radius:0;background:#202124;box-shadow:none}
-.lexi-top{min-height:62px;padding:10px 16px;background:#202124;border-bottom:1px solid rgba(255,255,255,.07)}
-.lexi-content{display:block;position:relative;min-height:0}
-.lexi-main{width:100%;height:calc(100vh - 62px);display:flex;flex-direction:column}
-.lexi-side{display:none!important}
-.lexi-messages{width:100%;max-width:920px;margin:0 auto;padding:22px 18px 145px;scroll-behavior:smooth}
-.lexi-welcome{min-height:calc(100vh - 250px);padding:30px 12px}
-.lexi-welcome-logo{width:72px;height:72px;border-radius:50%}
-.lexi-welcome h2{font-size:25px;letter-spacing:-.02em}
-.lexi-welcome p{font-size:14px;max-width:590px}
-.lexi-msg{width:100%;display:flex;gap:10px;margin:0 0 18px;align-items:flex-start}
-.lexi-msg.user{justify-content:flex-end}
-.lexi-msg.model{justify-content:flex-start}
-.lexi-msg.model:before{content:'Lexi';display:flex;align-items:center;justify-content:center;flex:0 0 31px;width:31px;height:31px;border-radius:50%;font-size:8px;font-weight:900;color:#fff;background:linear-gradient(135deg,#5b45ff,#9b70ff);box-shadow:0 0 18px rgba(102,76,255,.3);margin-top:2px}
-.lexi-bubble{max-width:min(780px,86%);padding:0;border:0;border-radius:0;background:transparent!important;color:#f1f3f6;line-height:1.62;font-size:15px;white-space:pre-wrap;overflow-wrap:anywhere;min-height:22px}
-.lexi-msg.user .lexi-bubble{max-width:min(620px,78%);padding:11px 15px;border-radius:19px;background:#303134!important;border:0;color:#f1f3f6}
-.lexi-msg.model .lexi-bubble.is-loading{display:flex;align-items:center;gap:10px;min-height:32px}
-.lexi-loading-label{font-size:13px;color:#b9bdc7;font-weight:700}
-.lexi-spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.18);border-top-color:#8a78ff;border-radius:50%;animation:lexiSpin .8s linear infinite;flex:0 0 auto}
-@keyframes lexiSpin{to{transform:rotate(360deg)}}
-.lexi-composer{position:absolute;left:0;right:0;bottom:0;padding:10px 16px calc(14px + env(safe-area-inset-bottom));border-top:0;background:linear-gradient(180deg,rgba(32,33,36,0),rgba(32,33,36,.78) 45%,#202124 100%)}
-.lexi-input-row{max-width:820px;margin:0 auto;gap:7px;padding:5px 6px 5px 14px;border:1px solid #5f6368;border-radius:28px;background:#303134;box-shadow:0 2px 14px rgba(0,0,0,.24)}
-#lexiInput{min-height:40px;max-height:130px;padding:9px 5px;border:0!important;box-shadow:none!important;background:transparent;color:#f1f3f4;border-radius:20px}
-#lexiInput::placeholder{color:#a9adb5}
-#lexiSend{width:40px;height:40px;border-radius:50%;font-size:17px;flex:0 0 auto;background:#8ab4f8;color:#101114}
-#lexiSend:disabled{background:#5f6368;color:#aeb2b9}
-.lexi-tip{display:none}
-.lexi-close{font-size:28px;color:#c8cbd0}
-.lexi-top .lexi-title{font-size:17px}.lexi-top .lexi-status{font-size:10px}
-.lexi-question-card{margin:15px 0 3px;padding:17px;border-radius:18px;background:#292a2d;border:1px solid #3f4145;box-shadow:0 5px 18px rgba(0,0,0,.16);font-family:inherit}
-.lexi-q-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
-.lexi-q-title{font-size:17px;font-weight:850;color:#fff;line-height:1.35}.lexi-q-count{font-size:11px;color:#9aa0a8}
-.lexi-q-text{font-size:14px;line-height:1.55;color:#e5e7eb;margin-bottom:14px}
-.lexi-q-options{display:grid;gap:8px}
-.lexi-q-option{width:100%;display:flex;gap:10px;align-items:flex-start;text-align:left;padding:12px 13px;border:1px solid #45474c;border-radius:13px;background:#35363a;color:#f0f1f3;cursor:pointer;font:inherit}
-.lexi-q-option:hover{border-color:#7b73e8;background:#3a3b42}.lexi-q-option.selected{border-color:#8ab4f8;background:#343f56}.lexi-q-option.correct{border-color:#62c58b;background:#263d32}.lexi-q-option.wrong{border-color:#db7d7d;background:#422d30}.lexi-q-key{width:25px;height:25px;display:grid;place-items:center;flex:0 0 25px;border-radius:8px;background:#45474c;font-size:11px;font-weight:850}.lexi-q-feedback{margin-top:12px;padding:11px 12px;border-radius:12px;background:#303236;color:#d7d9dd;font-size:12px;line-height:1.5}.lexi-q-action{margin-top:12px;display:flex;justify-content:flex-end}.lexi-q-next{border:0;border-radius:20px;padding:10px 16px;background:#8ab4f8;color:#101114;font-weight:850;cursor:pointer}
-.lexi-exit-modal{position:fixed;inset:0;z-index:100002;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.65);backdrop-filter:blur(8px)}
-.lexi-exit-card{width:min(380px,100%);padding:22px;border-radius:22px;background:#292a2d;border:1px solid #45474c;color:#f1f3f4;box-shadow:0 25px 70px rgba(0,0,0,.45)}
-.lexi-exit-card h3{margin:0 0 7px;font-size:20px}.lexi-exit-card p{margin:0;color:#bfc2c8;font-size:13px;line-height:1.5}.lexi-exit-actions{display:flex;gap:9px;margin-top:19px}.lexi-exit-actions button{flex:1;border-radius:13px;padding:11px;border:1px solid #55585e;font-weight:800;cursor:pointer}.lexi-exit-cancel{background:#35363a;color:#f1f3f4}.lexi-exit-confirm{background:#8ab4f8;color:#101114;border-color:#8ab4f8!important}
-/* Impede seleção/cópia no app, mantendo campos de entrada editáveis. */
-body.letrion-no-select, body.letrion-no-select *{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
-#lexiInput,#lexiInput *{-webkit-user-select:text!important;user-select:text!important}
-@media(max-width:720px){.lexi-messages{padding:16px 14px 135px}.lexi-bubble{max-width:90%;font-size:14px}.lexi-msg.user .lexi-bubble{max-width:86%}.lexi-composer{padding-left:9px;padding-right:9px}.lexi-input-row{padding-left:13px}.lexi-question-card{padding:14px}.lexi-q-title{font-size:16px}}
 
-#lexiMic{width:40px;height:40px;border-radius:50%;font-size:14px;flex:0 0 auto;background:#3a3b3f;color:#c9cbd1;border:0;cursor:pointer;transition:.18s;box-shadow:0 0 0 1px rgba(137,116,255,.10)}
-#lexiMic:hover{background:#44454a;box-shadow:0 0 12px rgba(126,103,255,.20)}
-#lexiMic.listening{background:#6f56e8;color:#fff;box-shadow:0 0 16px rgba(126,103,255,.42)}
-</style>
-
-<style id="lexi-v2-navigation">
+<style id="letrion-nav-v2">
 /* Navegação compacta: seis botões em uma única linha no celular */
 .mobileGrid{grid-template-columns:repeat(6,minmax(0,1fr));gap:3px;max-width:900px}
 .mobileBtn{min-height:58px;padding:5px 2px}
@@ -217,41 +147,7 @@ body.letrion-no-select, body.letrion-no-select *{-webkit-user-select:none!import
 }
 </style>
 
-<style id="lexi-v2-visual">
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap');
-#lexiModal,.lexi-shell,.lexi-shell button,.lexi-shell textarea{font-family:'Nunito',Inter,system-ui,sans-serif}
-.lexi-shell{background:#10111a!important;position:relative;overflow:hidden}
-.lexi-shell:before{content:"";position:absolute;inset:-25%;pointer-events:none;background:radial-gradient(circle at 18% 20%,rgba(111,76,255,.22),transparent 22%),radial-gradient(circle at 82% 78%,rgba(155,90,255,.14),transparent 25%),linear-gradient(130deg,transparent 28%,rgba(87,54,220,.08) 48%,transparent 70%);filter:blur(20px);opacity:.95}
-.lexi-top,.lexi-content{position:relative;z-index:1}
-.lexi-title,.lexi-welcome h2{font-family:'Nunito',Inter,sans-serif;font-weight:900;letter-spacing:-.035em}
-.lexi-messages{position:relative;z-index:1}
-.lexi-msg.model .lexi-bubble{max-width:min(790px,88%);padding:13px 15px;border:1px solid rgba(142,111,255,.18);border-radius:17px;background:linear-gradient(145deg,rgba(29,25,55,.94),rgba(22,24,38,.94))!important;box-shadow:0 0 18px rgba(105,73,255,.08);font-weight:600}
-.lexi-msg.model .lexi-bubble.is-loading{padding:11px 14px}
-.lexi-msg.model:before{font-family:'Nunito',sans-serif;font-weight:900;box-shadow:0 0 20px rgba(112,76,255,.28)}
-.lexi-msg.user .lexi-bubble{font-family:'Nunito',sans-serif;font-weight:700;border:1px solid rgba(139,92,246,.24);box-shadow:0 0 15px rgba(99,69,255,.08)}
-.lexi-highlight{color:#b79cff;text-decoration:underline;text-decoration-color:#9b6cff;text-decoration-thickness:2px;text-underline-offset:3px;font-weight:900}
-.lexi-question-card{position:relative;z-index:2;background:linear-gradient(145deg,rgba(29,25,52,.98),rgba(20,23,37,.98));border:1px solid rgba(139,92,246,.34);box-shadow:0 0 25px rgba(105,73,255,.12),0 10px 24px rgba(0,0,0,.22);font-family:'Nunito',sans-serif}
-.lexi-q-title{font-weight:900}.lexi-q-option{border-color:rgba(139,92,246,.20);background:rgba(49,47,62,.9);font-weight:700;box-shadow:0 0 10px rgba(105,73,255,.04)}
-.lexi-q-option:hover{box-shadow:0 0 16px rgba(105,73,255,.12)}
-.lexi-q-next{background:linear-gradient(135deg,#7555ff,#9a70ff);color:#fff;box-shadow:0 0 16px rgba(117,85,255,.22);font-family:'Nunito',sans-serif;font-weight:900}
-.lexi-input-row{border-color:rgba(139,92,246,.35)!important;box-shadow:0 0 18px rgba(105,73,255,.10)!important}
-#lexiSend{box-shadow:0 0 16px rgba(117,85,255,.24);font-family:'Nunito',sans-serif;font-weight:900}
-</style>
 
-<style id="lexi-v2-keyboard">
-@supports (height: 100dvh){
-  .lexi-main{height:calc(100dvh - 62px)}
-  .lexi-composer{bottom:env(safe-area-inset-bottom)}
-}
-@media (max-width:700px){
-  #lexiModal{height:100dvh}
-  .lexi-shell{height:100dvh}
-  .lexi-main{height:calc(100dvh - 62px)}
-  .lexi-messages{padding-bottom:150px}
-  .lexi-composer{position:fixed;bottom:0;left:0;right:0;z-index:10;padding-bottom:calc(9px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(16,17,26,0),rgba(16,17,26,.72) 55%,rgba(16,17,26,.96) 100%)}
-  #lexiInput{scroll-margin-bottom:150px}
-}
-</style>
 <style id="letrion-nav-v3-fix">
 /* ===== CORREÇÃO DE NAVEGAÇÃO RESPONSIVA V3 ===== */
 /* Tablets/celulares e janelas estreitas: seis botões visíveis em uma única barra. */
@@ -299,34 +195,15 @@ body.letrion-no-select, body.letrion-no-select *{-webkit-user-select:none!import
 }
 </style>
 
-<style id="lexi-v5-mic-context-style">
-#lexiMic{position:relative;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;font-size:18px;flex:0 0 44px;background:linear-gradient(145deg,#1a2140,#11162d);color:#d9d7ff;border:1px solid rgba(145,119,255,.38);cursor:pointer;box-shadow:0 0 0 1px rgba(126,103,255,.06),0 0 13px rgba(126,103,255,.10);transition:.18s}
-#lexiMic:hover{transform:translateY(-1px);box-shadow:0 0 18px rgba(126,103,255,.22)}
-#lexiMic.listening{background:linear-gradient(145deg,#765cff,#4c37c7);color:#fff;border-color:#a895ff;box-shadow:0 0 0 4px rgba(118,92,255,.12),0 0 25px rgba(118,92,255,.48);animation:lexiMicPulse 1.25s infinite}
-#lexiMic.denied{opacity:.55}
-#lexiMic .mic-bars{position:absolute;bottom:5px;display:none;gap:2px;align-items:flex-end;height:7px}
-#lexiMic.listening .mic-bars{display:flex}
-#lexiMic .mic-bars i{width:2px;background:#fff;border-radius:3px;animation:lexiBars .7s infinite ease-in-out}
-#lexiMic .mic-bars i:nth-child(2){height:7px;animation-delay:.1s}#lexiMic .mic-bars i:nth-child(1){height:4px}#lexiMic .mic-bars i:nth-child(3){height:5px;animation-delay:.2s}
-@keyframes lexiMicPulse{50%{box-shadow:0 0 0 7px rgba(118,92,255,.07),0 0 31px rgba(118,92,255,.58)}}
-@keyframes lexiBars{50%{transform:scaleY(.45);opacity:.65}}
-.lexi-voice-status{font-size:10px;color:#8f9bb5;min-height:13px;margin:5px 3px 0;opacity:.9}
-.lexi-voice-status.active{color:#b9aaff}
-.lexi-context-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#55d69a;box-shadow:0 0 8px rgba(85,214,154,.45);margin-right:5px}
+<link rel="stylesheet" href="games/duck-adventure/duck-adventure.css">
+<style id="letrion-exit-dialog">
+.letrion-exit-modal{position:fixed;inset:0;z-index:100002;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.65);backdrop-filter:blur(8px)}
+.letrion-exit-card{width:min(380px,100%);padding:22px;border-radius:22px;background:#292a2d;border:1px solid #45474c;color:#f1f3f4;box-shadow:0 25px 70px rgba(0,0,0,.45)}
+.letrion-exit-card h3{margin:0 0 7px;font-size:20px}.letrion-exit-card p{margin:0;color:#bfc2c8;font-size:13px;line-height:1.5}
+.letrion-exit-actions{display:flex;gap:9px;margin-top:19px}.letrion-exit-actions button{flex:1;border-radius:13px;padding:11px;border:1px solid #55585e;font-weight:800;cursor:pointer;background:#2f3135;color:#f1f3f4}
+.letrion-exit-confirm{background:#5B5CF0;border-color:#7577ff;color:#fff}
 </style>
-\n<style id="lexi-v7">
-#lexiPlus{width:40px;height:40px;border-radius:50%;border:1px solid rgba(151,119,255,.35);background:linear-gradient(145deg,#171d38,#10152a);color:#d8ceff;font-size:23px;line-height:1;cursor:pointer;box-shadow:0 0 12px rgba(126,91,255,.10);flex:0 0 40px}
-#lexiPlus.active{background:linear-gradient(145deg,#6e52e8,#4a35b8);box-shadow:0 0 20px rgba(126,91,255,.34)}
-.lexi-plus-menu{position:absolute;bottom:66px;left:10px;display:none;z-index:20;padding:8px;border:1px solid rgba(151,119,255,.24);border-radius:15px;background:rgba(17,20,35,.96);box-shadow:0 15px 40px rgba(0,0,0,.35),0 0 20px rgba(126,91,255,.10)}
-.lexi-plus-menu.open{display:block;animation:lexiPop .16s ease-out}.lexi-plus-menu button{display:block;width:190px;text-align:left;border:0;background:transparent;color:#eef0ff;padding:10px 11px;border-radius:10px;font:800 12px Nunito,system-ui;cursor:pointer}.lexi-plus-menu button:hover{background:rgba(126,91,255,.12)}
-.lexi-thinking-badge{font-size:10px;color:#bcaeff;margin:3px 0 0 4px;display:none}.lexi-thinking-badge.on{display:block}
-.lexi-spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(198,184,255,.18);border-top-color:#a98cff;border-right-color:#7657ff;border-radius:50%;vertical-align:middle;margin-right:9px;animation:lexiSpin .7s linear infinite}
-.lexi-loading-label{display:inline-flex;align-items:center;gap:4px;color:#c9c2e8;font-weight:800}.lexi-loading-label:after{content:'•••';letter-spacing:3px;animation:lexiDots 1.2s infinite}
-@keyframes lexiSpin{to{transform:rotate(360deg)}}@keyframes lexiDots{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-1px)}}@keyframes lexiPop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
-.lexi-lesson-card{margin:10px 0;padding:17px;border:1px solid rgba(139,92,246,.28);border-radius:19px;background:linear-gradient(145deg,rgba(30,25,57,.97),rgba(18,22,39,.97));box-shadow:0 0 25px rgba(106,74,255,.10)}
-.lexi-lesson-kicker{font:900 10px Nunito;color:#a98cff;letter-spacing:.08em;text-transform:uppercase}.lexi-lesson-title{font:900 20px Nunito;color:#fff;margin:4px 0 5px}.lexi-lesson-meta{font:700 11px Nunito;color:#9da7c0;margin-bottom:14px}.lexi-lesson-q{font:900 15px Nunito;line-height:1.5;color:#f3f2fa;margin-bottom:13px}.lexi-lesson-option{display:flex;width:100%;gap:9px;text-align:left;padding:11px;border-radius:13px;border:1px solid rgba(139,92,246,.18);background:rgba(49,47,65,.72);color:#f1f1f7;margin:7px 0;font:700 13px Nunito;cursor:pointer}.lexi-lesson-option:hover{border-color:rgba(155,126,255,.55)}.lexi-lesson-option.correct{border-color:#6ad39a;background:rgba(45,87,65,.38)}.lexi-lesson-option.wrong{border-color:#e17f91;background:rgba(100,43,54,.34)}.lexi-lesson-feedback{margin-top:10px;padding:10px;border-radius:12px;background:rgba(124,91,238,.09);font:700 12px Nunito;color:#cfd1df;line-height:1.45}.lexi-lesson-next{margin-top:12px;border:0;border-radius:13px;padding:10px 15px;background:linear-gradient(135deg,#7555ff,#9a70ff);color:#fff;font:900 12px Nunito;cursor:pointer;box-shadow:0 0 15px rgba(117,85,255,.20)}
-.lexi-transition{animation:lexiTransition .22s ease-out}@keyframes lexiTransition{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-</style>\n</head>
+</head>
 <body>
 <div id="root"></div>
 <div id="successFlash" class="successFlash" aria-hidden="true"></div>
@@ -722,16 +599,14 @@ function appLayout(u){const student=u.role==='student';return `<div class="app">
 
 function desktopQuickNav(u){
  const items=u?.role==='teacher'
-   ? [['teacher','P','Portal do Professor'],['students','A','Alunos'],['classes','T','Turmas'],['activities','✎','Atividades'],['reports','R','Relatórios'],['lexi','✦','Lexi']]
+   ? [['teacher','P','Portal do Professor'],['students','A','Alunos'],['classes','T','Turmas'],['activities','✎','Atividades'],['reports','R','Relatórios'],['games','▶','Jogos']]
    : u?.role==='admin'
-   ? [['admin','A','Painel'],['schools','E','Escolas'],['users','U','Usuários'],['contentAdmin','C','Conteúdos'],['settings','S','Configurações'],['lexi','✦','Lexi']]
-   : [['home','I','Início'],['journey','J','Minha Jornada'],['lessons','L','Lições'],['ranking','K','Ranking'],['rewards','E','Recompensas'],['lexi','✦','Lexi']];
- return items.map(n=>n[0]==='lexi'
-   ? `<button class="desktopQuickBtn lexi-navBtn" type="button" data-action="open-lexi"><span class="desktopQuickIcon">${n[1]}</span><span>${n[2]}</span></button>`
-   : `<button class="desktopQuickBtn" type="button" data-route="${n[0]}"><span class="desktopQuickIcon">${n[1]}</span><span>${n[2]}</span></button>`).join('');
+   ? [['admin','A','Painel'],['schools','E','Escolas'],['users','U','Usuários'],['contentAdmin','C','Conteúdos'],['settings','S','Configurações'],['games','▶','Jogos']]
+   : [['home','I','Início'],['journey','J','Minha Jornada'],['lessons','L','Lições'],['ranking','K','Ranking'],['rewards','E','Recompensas'],['games','▶','Jogos']];
+ return items.map(n=>`<button class="desktopQuickBtn" type="button" data-route="${n[0]}"><span class="desktopQuickIcon">${n[1]}</span><span>${n[2]}</span></button>`).join('');
 }
-function navFor(u){if(u.role==='teacher')return [['teacher','P','Painel'],['classes','T','Turmas'],['students','A','Alunos'],['missions','M','Missões'],['reports','R','Relatórios'],['teacherRewards','E','Recompensas'],['help','?','Ajuda']].map(n=>navButton(n)).join('');if(u.role==='admin')return [['admin','A','Painel'],['schools','E','Escolas'],['users','U','Usuários'],['contentAdmin','C','Conteúdos'],['requests','S','Solicitações Premium'],['adminRewards','R','Pedidos de recompensa'],['settings','S','Configurações']].map(n=>navButton(n)).join('');return [['home','I','Início'],['journey','J','Minha Jornada'],['lessons','L','Lições'],['review','R','Revisão'],['challenges','D','Desafios'],['ranking','K','Ranking'],['rewards','E','Recompensas'],['achievements','C','Conquistas'],['profile','P','Perfil'],['premium','E','Para Escolas'],['lexi','✦','Lexi']].map(n=>navButton(n)).join('')}
-function navButton(n){return n[0]==='lexi'?`<button class="navBtn lexi-navBtn" data-action="open-lexi" aria-label="Abrir Lexi"><span class="navIcon">${n[1]}</span>${n[2]}</button>`:`<button class="navBtn" data-route="${n[0]}"><span class="navIcon">${n[1]}</span>${n[2]}</button>`}
+function navFor(u){if(u.role==='teacher')return [['teacher','P','Painel'],['classes','T','Turmas'],['students','A','Alunos'],['missions','M','Missões'],['reports','R','Relatórios'],['teacherRewards','E','Recompensas'],['help','?','Ajuda']].map(n=>navButton(n)).join('');if(u.role==='admin')return [['admin','A','Painel'],['schools','E','Escolas'],['users','U','Usuários'],['contentAdmin','C','Conteúdos'],['requests','S','Solicitações Premium'],['adminRewards','R','Pedidos de recompensa'],['settings','S','Configurações']].map(n=>navButton(n)).join('');return [['home','I','Início'],['journey','J','Minha Jornada'],['lessons','L','Lições'],['review','R','Revisão'],['challenges','D','Desafios'],['ranking','K','Ranking'],['rewards','E','Recompensas'],['achievements','C','Conquistas'],['profile','P','Perfil'],['premium','E','Para Escolas'],['games','▶','Jogos']].map(n=>navButton(n)).join('')}
+function navButton(n){return `<button class="navBtn" data-route="${n[0]}"><span class="navIcon">${n[1]}</span>${n[2]}</button>`}
 function mobileNav(u){
  const icons={
   home:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.5V21h13V9.5M9.5 21v-6h5v6"/></svg>',
@@ -743,15 +618,16 @@ function mobileNav(u){
   classes:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>',
   students:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 20c.6-4 2.4-6 5.5-6s4.9 2 5.5 6M14 15c2.8-.2 4.7 1.4 5.2 5"/></svg>',
   reports:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V10M12 20V5M19 20v-8"/><path d="M3 20h18"/></svg>',
-  logout:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 5H5v14h5M14 8l4 4-4 4M9 12h9"/></svg>'
+  logout:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 5H5v14h5M14 8l4 4-4 4M9 12h9"/></svg>',
+  games:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12h4M9 10v4M15.5 11.5h.01M17.5 13.5h.01"/><rect x="2.5" y="6.5" width="19" height="11" rx="3.2"/></svg>'
  };
- const studentItems=[['home','Início'],['journey','Jornada'],['ranking','Ranking'],['rewards','Prêmios'],['profile','Perfil'],['lexi','Lexi']];
+ const studentItems=[['home','Início'],['journey','Jornada'],['games','Jogos'],['ranking','Ranking'],['rewards','Prêmios'],['profile','Perfil']];
  const teacherItems=[['teacher','Portal do Professor'],['classes','Turmas'],['students','Alunos'],['reports','Relatórios'],['logout','Sair']];
  const items=u?.role==='teacher'?teacherItems:studentItems;
- return `<nav class="mobileNav ${u?.role==='teacher'?'teacherMobileNav':''}" aria-label="Navegação principal"><div class="mobileGrid">${items.map(n=>n[0]==='logout'?`<button class="mobileBtn" data-action="logout" aria-label="Sair"><span class="mobileIcon" aria-hidden="true">${icons.logout}</span><span class="mobileLabel">Sair</span></button>`:n[0]==='lexi'?`<button class="mobileBtn lexi-navBtn" data-action="open-lexi" aria-label="Abrir Lexi"><span class="mobileIcon" aria-hidden="true">✦</span><span class="mobileLabel">Lexi</span></button>`:`<button class="mobileBtn" data-route="${n[0]}" aria-label="${n[1]}"><span class="mobileIcon" aria-hidden="true">${icons[n[0]]}</span><span class="mobileLabel">${n[1]}</span></button>`).join('')}</div></nav>`;
+ return `<nav class="mobileNav ${u?.role==='teacher'?'teacherMobileNav':''}" aria-label="Navegação principal"><div class="mobileGrid">${items.map(n=>n[0]==='logout'?`<button class="mobileBtn" data-action="logout" aria-label="Sair"><span class="mobileIcon" aria-hidden="true">${icons.logout}</span><span class="mobileLabel">Sair</span></button>`:`<button class="mobileBtn" data-route="${n[0]}" aria-label="${n[1]}"><span class="mobileIcon" aria-hidden="true">${icons[n[0]]}</span><span class="mobileLabel">${n[1]}</span></button>`).join('')}</div></nav>`;
 }
 function applyTheme(){State.settings.theme='navy';document.documentElement.dataset.theme='navy'}
-function routeTitle(){return({home:'Início',journey:'Minha Jornada',lessons:'Lições',review:'Revisão',challenges:'Desafios',ranking:'Ranking',rewards:'Recompensas',achievements:'Conquistas',profile:'Perfil',settings:'Configurações',premium:'Letrion para Escolas',player:'Lição',teacher:'Painel do Professor',classes:'Turmas',students:'Alunos',missions:'Missões',reports:'Relatórios',teacherRewards:'Recompensas',admin:'Painel Administrativo',schools:'Escolas',users:'Usuários',contentAdmin:'Conteúdos',requests:'Solicitações Premium',help:'Central de Ajuda'})[UI.route]||'LETRION'}
+function routeTitle(){return({home:'Início',journey:'Minha Jornada',lessons:'Lições',review:'Revisão',challenges:'Desafios',games:'Jogos',ranking:'Ranking',rewards:'Recompensas',achievements:'Conquistas',profile:'Perfil',settings:'Configurações',premium:'Letrion para Escolas',player:'Lição',teacher:'Painel do Professor',classes:'Turmas',students:'Alunos',missions:'Missões',reports:'Relatórios',teacherRewards:'Recompensas',admin:'Painel Administrativo',schools:'Escolas',users:'Usuários',contentAdmin:'Conteúdos',requests:'Solicitações Premium',help:'Central de Ajuda'})[UI.route]||'LETRION'}
 
 /* ---------- pages: student ---------- */
 function renderHome(el,u){const p=xpInfo(u);const ms=modulesFor(u);const mission=activeMission(u);const next=ms.find((m,i)=>moduleStatus(u,m,i)==='available')||ms[0];const acc=u.totalAnswered?Math.round(u.totalCorrect/u.totalAnswered*100):0;el.innerHTML=`<div class="section"><div><div class="eyebrow">Painel de aprendizagem</div><h2>Início</h2><p>Pronto para continuar sua jornada?</p></div></div><section class="hero"><div class="hello">Olá, ${esc(u.name.split(' ')[0])}!</div><h3>Cada palavra é um passo.</h3><div class="heroText">Avance em <b>${esc(next?.modulo||'seu próximo desafio')}</b> e construa seu próximo nível.</div><div class="stats"><div class="stat"><small>Nível</small><strong>${p.level}</strong><span>${p.current}/500 XP</span></div><div class="stat"><small>Letrins</small><strong>${u.coins||0}</strong><span>moeda da jornada</span></div><div class="stat"><small>Sequência</small><strong>${u.streak||0} 🔥</strong><span>dias ativos</span></div><div class="stat"><small>Precisão</small><strong>${acc}%</strong><span>média registrada</span></div></div><div style="margin-top:18px"><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);font-weight:850;margin-bottom:6px"><span>Progresso para nível ${p.level+1}</span><b>${p.current}/500</b></div><div class="bar"><div class="fill" style="width:${p.pct}%"></div></div></div></section><div class="grid g2" style="margin-top:17px"><div class="card"><div class="eyebrow">Missão de hoje</div><div class="mission"><div><h3>${esc(mission.title)}</h3><div class="muted" style="font-size:12px">${esc(mission.description)}</div><div class="chips"><span class="chip xp">⚡ +${mission.rewardXP} XP</span><span class="chip coin">🪙 +${mission.rewardCoins} Letrins</span></div></div><button class="btn primary" data-action="mission">CONTINUAR</button></div></div><div class="card"><div class="eyebrow">Próximo passo</div><h3 style="margin:4px 0">${esc(next?.modulo||'Desafio')}</h3><p class="muted" style="font-size:12px">${esc(next?.habilidade||'')}</p><button class="btn secondary" data-action="start-module" data-id="${next?.id||''}">▶ COMEÇAR FASE</button></div></div><div class="section" style="margin-top:26px"><div><div class="eyebrow">Resumo</div><h2>Seu painel</h2><p>${YEAR_LABEL[u.year]} · ${BIM_LABEL[u.bimestre]} · ${esc(u.schoolName||'Escola')}</p></div></div><div class="grid g3"><div class="card"><div class="kpi"><div class="kicon">🗺️</div><div><div class="kvalue">${ms.filter((m,i)=>moduleStatus(u,m,i)!=='locked').length}/${ms.length}</div><div class="klabel">fases acessíveis</div></div></div></div><div class="card"><div class="kpi"><div class="kicon">🏆</div><div><div class="kvalue">${(u.achievements||[]).length}/${ACHIEVEMENTS.length}</div><div class="klabel">conquistas desbloqueadas</div></div></div></div><div class="card"><div class="kpi"><div class="kicon">🔁</div><div><div class="kvalue">${Object.keys(u.wrong||{}).length}</div><div class="klabel">questões para revisar</div></div></div></div></div>`}
@@ -917,7 +793,7 @@ document.addEventListener('click',e=>{const tc=e.target.closest('[data-theme-cho
  if(action==='toggle-theme'){const themes=['light','dark','moss','navy','pastel-yellow','pink'];const i=themes.indexOf(State.settings.theme);State.settings.theme=themes[(i+1)%themes.length];saveData();render();return}
  if(action==='toggle-sound'){State.settings.sound=!State.settings.sound;saveData();render();return}
  if(action==='toggle-motion'){State.settings.reduceMotion=!State.settings.reduceMotion;saveData();render();return}
- if(action==='open-drawer'){openNotifications();return}if(action==='open-lexi'){openLexi();return}if(action==='close-drawer'){closeNotifications();return}if(action==='close-modal'){closeModal();return}
+ if(action==='open-drawer'){openNotifications();return}if(action==='close-drawer'){closeNotifications();return}if(action==='close-modal'){closeModal();return}
  if(action==='start-module'){startLesson(a.dataset.id);return}if(action==='start-daily-lesson'){startDailyLesson(a.dataset.id);return}if(action==='begin-lesson'){UI.lessonIntro=false;UI.questionEntering=true;render();return}if(action==='assessment'){startAssessment();return}if(action==='validate-question'){validateQuestion();return}if(action==='next-question'){nextQuestion();return}if(action==='exit-lesson'){saveLessonSession();confirmExitLesson();return}if(action==='confirm-exit-lesson'){saveLessonSession();UI.lesson=null;UI.lessonIntro=false;UI.questions=[];UI.qIndex=0;UI.selected=null;UI.text='';UI.order=[];UI.matchDone=false;UI.feedback=null;UI.answerLog=[];UI.finished=null;closeModal();UI.route='journey';render();return}if(action==='next-phase'){UI.finished=null;UI.lessonIntro=false;startLesson(a.dataset.id);return}
  if(action==='review'){startLesson(a.dataset.id,'review');return}if(action==='open-mission'){openStudentMission();return}if(action==='delete-account'){deleteAccountConfirm();return}if(action==='confirm-delete-account'){deleteCurrentAccount();return}if(action==='challenge'){startChallenge(a.dataset.id);return}if(action==='mission'){openStudentMission();return}
  if(action==='redeem'){rewardConfirm(a.dataset.id);return}if(action==='confirm-reward'){confirmReward(a.dataset.id);return}if(action==='edit-profile'){editProfileModal();return}
@@ -1568,8 +1444,8 @@ function escapeAttr(v=''){return esc(v).replace(/\n/g,' ')}
 function teacherOnlyRoute(route){return ['teacher','classes','students','studentDetail','activities','activityCreate','performance','bncc','reports','feedbacks','teacherSettings'].includes(route)}
 function teacherNav(){return [['teacher','P','Dashboard'],['students','A','Meus Alunos'],['classes','T','Minhas Turmas'],['activities','At','Atividades'],['activityCreate','+','Criar Atividade'],['performance','D','Desempenho'],['bncc','B','BNCC'],['reports','R','Relatórios'],['feedbacks','F','Feedbacks'],['teacherSettings','S','Configurações']].map(navButton).join('')}
 function navFor(u){if(u?.role==='teacher')return teacherNav();if(u?.role==='admin')return [['admin','A','Painel'],['schools','E','Escolas'],['users','U','Usuários'],['contentAdmin','C','Conteúdos'],['requests','S','Solicitações Premium'],['adminRewards','R','Pedidos de recompensa'],['settings','S','Configurações']].map(navButton).join('');return [['home','I','Início'],['journey','J','Minha Jornada'],['lessons','L','Lições'],['review','R','Revisão'],['challenges','D','Desafios'],['ranking','K','Ranking'],['rewards','E','Recompensas'],['achievements','C','Conquistas'],['profile','P','Perfil'],['premium','E','Para Escolas']].map(navButton).join('')}
-function appLayout(u){const student=u.role==='student';return `<div class="app"><aside class="side"></aside><main class="main"><header class="top"><div class="pageTitle" id="pageTitle">${routeTitle()}</div><div class="topRight"><button class="icon iconText" data-action="toggle-sound" aria-label="Alternar som">${State.settings.sound?'SOM':'MUDO'}</button><button class="icon iconText" data-action="open-drawer" aria-label="Abrir notificações">NOT${State.notifications.some(n=>n.userId===u.id&&n.unread)?'<i class="dot"></i>':''}</button><button class="userChip" data-route="${u.role==='student'?'profile':u.role==='teacher'?'teacherSettings':'admin'}" aria-label="Abrir perfil"><span class="avatar">${initials(u.name)}</span><span class="userName">${esc(u.name)}</span></button></div></header><div id="content" class="content"></div><footer class="appFooter">made by Miguel, Murilo &amp; Vinicius</footer></main>${mobileNav(u)}</div>`}
-function routeTitle(){return({home:'Início',journey:'Minha Jornada',lessons:'Lições',review:'Revisão',challenges:'Desafios',ranking:'Ranking',rewards:'Recompensas',achievements:'Conquistas',profile:'Perfil',settings:'Configurações',premium:'Letrion para Escolas',player:'Lição',teacher:'Portal do Professor',classes:'Minhas Turmas',students:'Meus Alunos',studentDetail:'Perfil do Aluno',activities:'Atividades',activityCreate:'Criar Atividade',performance:'Desempenho',bncc:'Desempenho por BNCC',reports:'Relatórios',feedbacks:'Feedbacks',teacherSettings:'Configurações do Professor',help:'Central de Ajuda',admin:'Painel Administrativo',schools:'Escolas',users:'Usuários',contentAdmin:'Conteúdos',requests:'Solicitações Premium',adminRewards:'Pedidos de recompensa'})[UI.route]||'LETRION'}
+function appLayout(u){const student=u.role==='student';return `<div class="app"><aside class="side"></aside><main class="main"><header class="top"><div class="pageTitle" id="pageTitle">${routeTitle()}</div><div class="topRight"><button class="icon iconText" data-route="games" aria-label="Abrir jogos">JOGOS</button><button class="icon iconText" data-action="toggle-sound" aria-label="Alternar som">${State.settings.sound?'SOM':'MUDO'}</button><button class="icon iconText" data-action="open-drawer" aria-label="Abrir notificações">NOT${State.notifications.some(n=>n.userId===u.id&&n.unread)?'<i class="dot"></i>':''}</button><button class="userChip" data-route="${u.role==='student'?'profile':u.role==='teacher'?'teacherSettings':'admin'}" aria-label="Abrir perfil"><span class="avatar">${initials(u.name)}</span><span class="userName">${esc(u.name)}</span></button></div></header><div id="content" class="content"></div><footer class="appFooter">made by Miguel, Murilo &amp; Vinicius</footer></main>${mobileNav(u)}</div>`}
+function routeTitle(){return({home:'Início',journey:'Minha Jornada',lessons:'Lições',review:'Revisão',challenges:'Desafios',games:'Jogos',ranking:'Ranking',rewards:'Recompensas',achievements:'Conquistas',profile:'Perfil',settings:'Configurações',premium:'Letrion para Escolas',player:'Lição',teacher:'Portal do Professor',classes:'Minhas Turmas',students:'Meus Alunos',studentDetail:'Perfil do Aluno',activities:'Atividades',activityCreate:'Criar Atividade',performance:'Desempenho',bncc:'Desempenho por BNCC',reports:'Relatórios',feedbacks:'Feedbacks',teacherSettings:'Configurações do Professor',help:'Central de Ajuda',admin:'Painel Administrativo',schools:'Escolas',users:'Usuários',contentAdmin:'Conteúdos',requests:'Solicitações Premium',adminRewards:'Pedidos de recompensa'})[UI.route]||'LETRION'}
 function teacherDashboard(el,t){const m=teacherMetric(t),cs=teacherClasses(t);el.innerHTML=`<div class="roleBanner">Portal do Professor · ${esc(t.name)} · acesso restrito às suas turmas e alunos.</div><div class="section"><div><div class="eyebrow">Centro pedagógico</div><h2>Dashboard</h2><p>Acompanhamento real dos dados armazenados no LETRION.</p></div><div class="actions" style="margin-top:0"><button class="btn primary" data-route="activityCreate">CRIAR ATIVIDADE</button><button class="btn secondary" data-route="students">MEUS ALUNOS</button><button class="btn secondary" data-route="teacherRewards">RECOMPENSAS</button><button class="btn secondary" data-route="reports">RELATÓRIOS</button></div></div><div class="grid g4">${[['Alunos',m.students],['Ativos',m.active],['Lições pendentes',m.pending],['Lições concluídas',m.completedToday],['Questões respondidas',m.answered],['Acertos',m.correct],['Erros',m.wrong],['Média da turma',m.accuracy+'%']].map(x=>`<div class="card"><div class="kvalue">${x[1]}</div><div class="klabel">${x[0]}</div></div>`).join('')}</div><div class="grid g2" style="margin-top:17px"><div class="card"><div class="section"><div><div class="eyebrow">Atenção</div><h3 style="margin:3px 0">Alunos que precisam de acompanhamento</h3></div></div>${m.xs.filter(s=>{const st=studentPackageStats(s);return st.accuracy<60||st.current?.status==='active'&&st.currentDone<st.total}).slice(0,8).map(s=>{const st=studentPackageStats(s);return `<div class="studentRow"><div><b>${esc(s.name)}</b><div class="muted" style="font-size:10px">${YEAR_LABEL[s.year]} · ${esc(State.classes.find(c=>c.id===s.classId)?.name||'')}</div></div><span class="status ${st.accuracy<60?'':'available'}">${st.accuracy}% · ${st.currentDone}/${st.total}</span></div>`}).join('')||'<p class="muted">Nenhum alerta no momento.</p>'}</div><div class="card"><div class="eyebrow">Minhas turmas</div><h3 style="margin:3px 0">Visão rápida</h3>${cs.slice(0,8).map(c=>{const st=teacherClassStats(c);return `<div class="studentRow"><div><b>${esc(c.name)}</b><div class="muted" style="font-size:10px">${st.students.length} alunos · ${st.active} ativos</div></div><b>${st.accuracy}%</b></div>`}).join('')||'<p class="muted">Nenhuma turma.</p>'}</div></div><div class="grid g3" style="margin-top:17px"><div class="card"><div class="eyebrow">Progresso médio</div><div class="kvalue">${m.progress}%</div><div class="meter" style="margin-top:12px"><i style="width:${m.progress}%"></i></div></div><div class="card"><div class="eyebrow">Conteúdo com maior dificuldade</div>${aggregateContentDifficulty(t).slice(0,3).map(x=>`<div class="studentRow"><span>${esc(x.name)}</span><b>${x.accuracy}%</b></div>`).join('')||'<p class="muted">Ainda não há dados.</p>'}</div><div class="card"><div class="eyebrow">Atividades recentes</div>${teacherActivities(t).slice(-4).reverse().map(a=>`<div class="studentRow"><span>${esc(a.title)}</span><small class="muted">${new Date(a.createdAt).toLocaleDateString('pt-BR')}</small></div>`).join('')||'<p class="muted">Nenhuma atividade criada.</p>'}</div></div>`}
 function aggregateContentDifficulty(t){const map={};teacherStudents(t).forEach(s=>contentPerformance(s).forEach(x=>{const r=map[x.name]||(map[x.name]={name:x.name,answered:0,correct:0});r.answered+=x.answered;r.correct+=x.correct}));return Object.values(map).map(x=>({...x,accuracy:x.answered?Math.round(x.correct/x.answered*100):0})).sort((a,b)=>a.accuracy-b.accuracy)}
 function teacherActivities(t){State.activities=State.activities||[];return State.activities.filter(a=>a.teacherId===t.id&&a.schoolId===t.schoolId)}
@@ -1606,7 +1482,7 @@ const renderStudentHomeBase=renderHome;function renderHome(el,u){ensureDailyPack
 function teacherRenderRoute(){const t=assertTeacher();if(!t)return;const c=document.getElementById('content');const map={teacher:()=>teacherDashboard(c,t),classes:()=>renderTeacherClasses(c,t),students:()=>renderTeacherStudents(c,t),studentDetail:()=>renderStudentDetail(c,t),activities:()=>renderTeacherActivities(c,t),activityCreate:()=>teacherActivityModal(),performance:()=>renderPerformance(c,t),bncc:()=>renderBNCC(c,t),reports:()=>renderTeacherReports(c,t),feedbacks:()=>renderFeedbacks(c,t),teacherSettings:()=>renderTeacherSettings(c,t)};if(UI.route==='activityCreate'){teacherActivityModal();UI.route='activities';return}return (map[UI.route]||map.teacher)()}
 function teacherRenderOverride(){applyTheme();const u=user();if(!u){renderAuth();return}if(teacherOnlyRoute(UI.route)){document.getElementById('root').innerHTML=appLayout(u);teacherRenderRoute();document.getElementById('pageTitle').textContent=routeTitle();renderNotices();return}if(u.role==='teacher'){UI.route='teacher';document.getElementById('root').innerHTML=appLayout(u);teacherRenderRoute();document.getElementById('pageTitle').textContent=routeTitle();renderNotices();return}return renderLegacyBase()}
 const renderLegacyBase=render;
-function render(){applyTheme();const u=user();if(!u){renderAuth();return}if(teacherOnlyRoute(UI.route)||u.role==='teacher'){teacherRenderOverride();return}document.getElementById('root').innerHTML=appLayout(u);const c=document.getElementById('content');const routes={home:()=>renderHome(c,u),journey:()=>renderJourney(c,u),games:()=>{c.innerHTML=''},lessons:()=>renderLessons(c,u),review:()=>renderReview(c,u),challenges:()=>renderChallenges(c,u),ranking:()=>renderRanking(c,u),rewards:()=>renderRewards(c,u),achievements:()=>renderAchievements(c,u),profile:()=>renderProfile(c,u),settings:()=>renderSettings(c,u),premium:()=>renderPremium(c),assessment:()=>renderAssessment(c,u),player:()=>renderPlayer(c,u),help:()=>renderHelp(c,u),privacy:()=>renderLegal(c,'privacy'),terms:()=>renderLegal(c,'terms'),admin:()=>renderAdmin(c,u),schools:()=>renderSchools(c,u),users:()=>renderUsers(c,u),contentAdmin:()=>renderContentAdmin(c,u),requests:()=>renderRequests(c,u),adminRewards:()=>renderAdminRewards(c,u)};(routes[UI.route]||routes.home)();document.getElementById('pageTitle').textContent=routeTitle();document.querySelectorAll('[data-route]').forEach(b=>b.classList.toggle('active',b.dataset.route===UI.route));renderNotices()}
+function render(){applyTheme();const u=user();if(!u){renderAuth();return}if(teacherOnlyRoute(UI.route)||u.role==='teacher'){teacherRenderOverride();return}document.getElementById('root').innerHTML=appLayout(u);const c=document.getElementById('content');const routes={home:()=>renderHome(c,u),journey:()=>renderJourney(c,u),games:()=>renderGames(c,u),lessons:()=>renderLessons(c,u),review:()=>renderReview(c,u),challenges:()=>renderChallenges(c,u),ranking:()=>renderRanking(c,u),rewards:()=>renderRewards(c,u),achievements:()=>renderAchievements(c,u),profile:()=>renderProfile(c,u),settings:()=>renderSettings(c,u),premium:()=>renderPremium(c),assessment:()=>renderAssessment(c,u),player:()=>renderPlayer(c,u),help:()=>renderHelp(c,u),privacy:()=>renderLegal(c,'privacy'),terms:()=>renderLegal(c,'terms'),admin:()=>renderAdmin(c,u),schools:()=>renderSchools(c,u),users:()=>renderUsers(c,u),contentAdmin:()=>renderContentAdmin(c,u),requests:()=>renderRequests(c,u),adminRewards:()=>renderAdminRewards(c,u)};(routes[UI.route]||routes.home)();document.getElementById('pageTitle').textContent=routeTitle();document.querySelectorAll('[data-route]').forEach(b=>b.classList.toggle('active',b.dataset.route===UI.route));renderNotices()}
 /* Form/action extensions for the portal. */
 const originalClickHandlersInstalled=true;
 function handleTeacherAction(action,a){const t=assertTeacher();if(!t)return true;if(action==='new-class'){newTeacherClassModal();return true}if(action==='student-report'){studentReportModal(a.dataset.id);return true}if(action==='add-points'){addStudentPointsModal(a.dataset.id);return true}if(action==='schedule-reward'){scheduleRewardModal(a.dataset.id);return true}if(action==='copy-class-code'){const c=State.classes.find(x=>x.id===a.dataset.id&&teacherClasses(t).some(tc=>tc.id===x.id));if(c){const code=makeClassCode(c);navigator.clipboard?.writeText(code).catch(()=>{});toast('Código da turma',code,'success')}return true}if(action==='student-detail'){studentDetailAccess(t,a.dataset.id);return true}if(action==='feedback-student'){feedbackModal(a.dataset.id);return true}if(action==='recommend-student'){recommendModal(a.dataset.id);return true}if(action==='assign-activity'){activityAssignModal(a.dataset.id);return true}if(action==='confirm-activity-assign'){confirmActivityAssign(a.dataset.id);return true}if(action==='export-teacher-csv'){exportTeacherCSV();return true}if(action==='select-class'){const c=teacherClasses(t).find(x=>x.id===a.dataset.id);if(c){UI.selectedClass=c.id;UI.route='students';render()}return true}if(action==='generate-activity'){const f=document.getElementById('teacherActivityForm');if(!f)return true;const d=Object.fromEntries(new FormData(f).entries());const qs=localActivityQuestions(d);window.__pendingTeacherActivity={data:d,questions:qs};toast('Questões geradas',`${qs.length} questões foram preparadas para revisão.`,'success');return true}return false}
@@ -2328,395 +2204,8 @@ document.head.appendChild(letrionV9Style);
 loadLetrionBank().then(()=>{prime();if(user()){ensureDailyPackage(user());render();window.dispatchEvent(new Event('letrion:app-ready'))}else renderAuth()}).catch(err=>{console.error('[LETRION] banco',err);document.body.innerHTML='<div style="padding:30px;font-family:system-ui;text-align:center"><h2>LETRION</h2><p>Não foi possível carregar o banco de lições neste navegador.</p><p style="opacity:.7">Atualize o navegador e tente novamente.</p></div>'});
 </script>
 
-<!-- ===== LEXI ASSISTENTE ===== -->
-<div id="lexiModal" class="lexi-modal" aria-hidden="true">
-  <section class="lexi-shell" role="dialog" aria-modal="true" aria-label="Lexi">
-    <header class="lexi-top">
-      <div class="lexi-brand"><img class="lexi-avatar" id="lexiAvatar" alt="Lexi"><div><div class="lexi-title">Lexi</div><div class="lexi-status">Online · Língua Portuguesa</div></div></div>
-      <button class="lexi-close" type="button" onclick="closeLexi()" aria-label="Fechar Lexi">×</button>
-    </header>
-    <div class="lexi-content">
-      <section class="lexi-main">
-        <div id="lexiMessages" class="lexi-messages"><div class="lexi-welcome" id="lexiWelcome"><img class="lexi-welcome-logo" id="lexiWelcomeLogo" alt="Lexi"><h2>Olá, eu sou a Lexi.</h2><p>Eu explico o conteúdo e mostro o caminho para você chegar à resposta. Se você pedir um exercício, posso transformar a explicação em uma questão interativa.</p></div></div>
-        <div class="lexi-composer"><div class="lexi-input-row"><button id="lexiPlus" type="button" aria-label="Mais opções" title="Mais opções">＋</button><textarea id="lexiInput" rows="1" placeholder="Digite sua mensagem..."></textarea><button id="lexiSend" type="button" onclick="sendLexiMessage()" aria-label="Enviar">➤</button></div></div>
-      </section>
-    </div>
-  </section>
-</div>
-<script>
-/* ===== LEXI LESSON ENGINE — OPENROUTER / BAIXO CONSUMO =====
-   O banco pré-preparado continua como fallback. Quando o aluno entra,
-   a Lexi pode substituir a lição atual por uma nova lição gerada pelo
-   OpenRouter, mantendo exatamente 8 questões A-D e o currículo do ano/bimestre.
-*/
-(function(){
-  const OR_KEY="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";
-  const OR_ENDPOINT="https://openrouter.ai/api/v1/chat/completions";
-  const OR_MODEL="openai/gpt-4o-mini";
-  const OR_STORE="LETRION_OPENROUTER_AI_LESSONS_V1";
-  let generating=false;
 
-  function getGenerated(){try{return JSON.parse(localStorage.getItem(OR_STORE)||'[]')}catch(_){return []}}
-  function saveGenerated(a){try{localStorage.setItem(OR_STORE,JSON.stringify(a.slice(-120)))}catch(_){}
-  }
-  function topicsFor(u){
-    try{
-      const mods=(TOPICS[String(u.year)]?.[Number(u.bimestre)]||[]);
-      return mods.map((x,i)=>`${i+1}. ${x[0]} — ${x[1]}`).join('\n');
-    }catch(_){return ''}
-  }
-  function normalizeLesson(raw,u,index){
-    if(!raw||!Array.isArray(raw.questions)||raw.questions.length!==8)throw new Error('A Lexi não retornou exatamente 8 questões.');
-    const qs=raw.questions.map((q,i)=>{
-      if(!q||typeof q.text!=='string'||!Array.isArray(q.options)||q.options.length!==4)throw new Error('Questão inválida.');
-      let correct=Number(q.correct);
-      if(!Number.isInteger(correct)||correct<0||correct>3)throw new Error('Gabarito inválido.');
-      const opts=q.options.map(x=>String(x||'').trim());
-      if(opts.some(x=>!x)||new Set(opts.map(x=>x.toLowerCase())).size!==4)throw new Error('Alternativas repetidas.');
-      return {id:`AI-${u.year}-${u.bimestre}-${index+1}-Q${i+1}-${Date.now()}`,passage:String(q.passage||''),prompt:String(q.text).trim(),options:opts.map((text,j)=>({text,correct:j===correct})),answer:'ABCD'[correct],contentId:String(q.content||raw.title||'Língua Portuguesa'),habilidadeBNCC:String(q.habilidadeBNCC||`Língua Portuguesa — ${u.year}º ano, ${u.bimestre}º bimestre`)};
-    });
-    const prompts=qs.map(q=>q.prompt.toLowerCase());
-    if(new Set(prompts).size!==8)throw new Error('Questões repetidas.');
-    return {id:`ai-${u.year}-${u.bimestre}-${index+1}-${Date.now()}`,type:'LIÇÃO LEXI',year:Number(u.year),bim:Number(u.bimestre),level:'progressão',contents:String(raw.objective||raw.title||'Língua Portuguesa'),questions:qs,title:String(raw.title||`Lição ${index+1} — ${u.year}º ano`),objective:String(raw.objective||'Prática contextualizada de Língua Portuguesa')};
-  }
-  async function generate(u,index){
-    const curriculum=topicsFor(u);
-    const prompt=`Você é o motor pedagógico do LETRION. Gere UMA lição inédita de Língua Portuguesa para o ${u.year}º ano, ${u.bimestre}º bimestre. O banco pré-preparado do aplicativo é o fallback, mas esta lição deve ser nova e não copiar suas questões.
-
-CONTEÚDOS PERMITIDOS DO BIMESTRE:
-${curriculum}
-
-REGRAS OBRIGATÓRIAS:
-- Exatamente 8 questões.
-- Cada questão deve ter um texto-base ou situação textual suficientemente formada para exigir leitura/análise quando o conteúdo permitir.
-- Enunciados contextualizados, claros e de dificuldade moderada para o ano escolar.
-- Exatamente 4 alternativas por questão.
-- Uma única alternativa correta.
-- Alternativas plausíveis, sem pegadinhas artificiais.
-- Não repetir pergunta, texto-base, estrutura ou alternativa dentro da lição.
-- Não criar conteúdo de outras matérias.
-- Não criar conteúdo sexual, adulto ou inadequado para estudantes.
-- Respeitar os conteúdos informados acima.
-- Não inventar habilidades BNCC específicas; se não tiver certeza, use apenas a descrição geral do ano/bimestre.
-- Retorne SOMENTE JSON válido, sem markdown.
-
-FORMATO:
-{"title":"...","objective":"...","questions":[{"passage":"...","text":"...","options":["A","B","C","D"],"correct":0,"content":"...","habilidadeBNCC":"..."}]}`;
-    const r=await fetch(OR_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${OR_KEY}`,'HTTP-Referer':location.href,'X-Title':'LETRION Lexi'},body:JSON.stringify({model:OR_MODEL,messages:[{role:'system',content:'Você é Lexi, especialista em Língua Portuguesa para Ensino Fundamental II. Gere somente conteúdo pedagógico de Português.'},{role:'user',content:prompt}],temperature:.2,max_tokens:4200})});
-    if(!r.ok){let msg='';try{const j=await r.json();msg=j?.error?.message||''}catch(_){}throw new Error(msg||`OpenRouter HTTP ${r.status}`)}
-    const data=await r.json();
-    const content=data?.choices?.[0]?.message?.content;
-    if(typeof content!=='string'||!content.trim())throw new Error('OpenRouter não retornou conteúdo.');
-    const cleaned=content.replace(/^```json\s*/i,'').replace(/```$/,'').trim();
-    return normalizeLesson(JSON.parse(cleaned),u,index);
-  }
-  async function generateCurrent(u){
-    if(!u||u.role!=='student'||generating)return null;
-    const pkg=typeof v4Current==='function'?v4Current(u):null;
-    if(!pkg||pkg.status!=='active'||!pkg.lessons?.[0])return null;
-    const index=Number(pkg.bankStart||0);
-    const generated=getGenerated();
-    const key=`${u.id}|${u.year}|${u.bimestre}|${index}`;
-    if(generated.some(x=>x.key===key))return null;
-    generating=true;
-    try{
-      const ai=await generate(u,index);
-      const record=makeBankLessonRecord(u,ai,index);
-      record.id=`dl-${u.id}-ai-${ai.id}`;record.bankLessonId=ai.id;record.bankGlobalIndex=index;record.isAI=true;record.title=ai.title;record.conteudo=ai.contents;record.habilidadeBNCC=record.questions[0]?.habilidadeBNCC||'';record.moduleId=(CURRICULUM[u.year]?.[u.bimestre]?.[0]?.id)||`ai-${u.year}-${u.bimestre}`;
-      pkg.lessons[0]=record;pkg.aiGenerated=true;pkg.aiModel=OR_MODEL;pkg.aiGeneratedAt=Date.now();
-      const mirror=(State.dailyPackages||[]).find(x=>x.id===pkg.id);if(mirror){mirror.aiGenerated=true;mirror.aiModel=OR_MODEL}
-      generated.push({key,packageId:pkg.id,lessonId:record.id,at:Date.now()});saveGenerated(generated);saveData();
-      if(typeof render==='function')render();
-      return record;
-    }catch(e){console.warn('[LETRION] OpenRouter lesson',e);return null}
-    finally{generating=false}
-  }
-  window.LETRION_OPENROUTER_LESSON_ENGINE={generateCurrent,model:OR_MODEL};
-  window.addEventListener('letrion:app-ready',()=>{try{const u=typeof student==='function'?student():null;if(u)setTimeout(()=>generateCurrent(u),900)}catch(_){}});
-  // Também inicia quando o banco terminar de carregar, sem bloquear a interface.
-  setTimeout(()=>{try{const u=typeof student==='function'?student():null;if(u)generateCurrent(u)}catch(_){ }},1800);
-})();
-</script>
-<script>
-(function(){
-  const API_KEY="AQ.Ab8RN6Kvc7DjlVq1wxtzZQBDmw1xwb3PO4kI-pyCmVHz2c8BMw";
-  const OR_LEXI_KEY="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";
-  const MODEL="gemini-3.5-flash-lite";
-  const ENDPOINT="https://generativelanguage.googleapis.com/v1beta/models/"+MODEL+":streamGenerateContent?alt=sse";
-  const SYSTEM=`Você é Lexi, assistente de Língua Portuguesa do LETRION. Responda somente sobre Português. Fora desse tema, diga: "Não vou responder a esse assunto porque meu foco é Língua Portuguesa." Seja direta, clara e didática. Não entregue gabarito; ensine o raciocínio. Não use Markdown, asteriscos, hashtags ou crases. Use [[trecho]] somente para destacar algo importante; a interface deixará roxo e sublinhado. Não crie questão interativa em toda resposta: só quando o aluno pedir, estiver estudando por exercício, ou quando uma questão for realmente necessária para verificar a compreensão. Quando criar uma questão, use somente <LEXI_QUESTION>JSON</LEXI_QUESTION>. Nunca use esse marcador para uma resposta comum.`;
-  const history=[]; let busy=false; let appContextCache={}; let lastContextRefresh=0;
-  const GEMINI_MAX_OUTPUT=700;
-  const GEMINI_HISTORY_LIMIT=6;
-  const GEMINI_CACHE_KEY='LETRION_LEXI_GEMINI_CACHE_V2';
-  function lexiCacheRead(key){try{const c=JSON.parse(localStorage.getItem(GEMINI_CACHE_KEY)||'{}');return typeof c[key]==='string'?c[key]:null}catch(_){return null}}
-  function lexiCacheWrite(key,value){try{const c=JSON.parse(localStorage.getItem(GEMINI_CACHE_KEY)||'{}');const keys=Object.keys(c);if(keys.length>40)delete c[keys[0]];c[key]=value;localStorage.setItem(GEMINI_CACHE_KEY,JSON.stringify(c))}catch(_){}}
-  function lexiCacheKey(q){const u=typeof user==='function'?user():null;const deep=!!window.__lexiDeepThinkPrompt;return [u?.year||'',u?.bimestre||'',deep?'deep':'normal',String(q).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,' ').trim()].join('|')}
-  function compactHistory(){return history.slice(-GEMINI_HISTORY_LIMIT)}
-
-
-  function safeClone(value, depth=0, seen=new WeakSet()){
-    if(depth>5)return '[limite de profundidade]';
-    if(value===null||value===undefined)return value;
-    const t=typeof value;
-    if(t==='string'||t==='number'||t==='boolean')return value;
-    if(t==='function')return undefined;
-    if(t==='object'){
-      if(seen.has(value))return '[referência circular]';
-      seen.add(value);
-      if(Array.isArray(value))return value.slice(0,250).map(v=>safeClone(v,depth+1,seen));
-      const out={};
-      for(const [k,v] of Object.entries(value)){
-        const lk=k.toLowerCase();
-        if(/password|senha|apikey|api_key|token|secret|credential|authorization/.test(lk))continue;
-        const sv=safeClone(v,depth+1,seen); if(sv!==undefined)out[k]=sv;
-      }
-      return out;
-    }
-    return String(value);
-  }
-  function collectLetrionContext(){
-    const ctx={timestamp:new Date().toISOString(),source:'LETRION — contexto do aplicativo'};
-    try{ctx.route=typeof UI!=='undefined'?UI.route:null;ctx.authTab=typeof UI!=='undefined'?UI.authTab:null}catch(_){ }
-    try{
-      const u=typeof user==='function'?user():null;
-      if(u){
-        const safe=safeClone(u);
-        // Redundâncias úteis para respostas pedagógicas, sem credenciais.
-        ctx.user=safe;
-        ctx.userSummary={name:u.name||u.username||'estudante',username:u.username||null,year:u.year||null,period:u.period||null,classLetter:u.classLetter||null,role:u.role||'student',level:u.level??null,xp:u.xp??null,totalAnswered:u.totalAnswered??0,totalCorrect:u.totalCorrect??0};
-        try{ctx.dailyPackage=typeof activeDailyPackage==='function'?safeClone(activeDailyPackage(u)):null}catch(_){ }
-        try{ctx.currentDailyPackage=typeof currentDailyPackage==='function'?safeClone(currentDailyPackage(u)):null}catch(_){ }
-        try{ctx.packageStats=typeof studentPackageStats==='function'?safeClone(studentPackageStats(u)):null}catch(_){ }
-        try{ctx.currentLessonId=u.currentLessonId??null;ctx.currentLesson=typeof findDailyLesson==='function'&&u.currentLessonId?safeClone(findDailyLesson(u,u.currentLessonId)):null}catch(_){ }
-      }
-    }catch(_){ }
-    try{
-      const visible=document.body?.innerText||'';
-      ctx.visibleScreenText=visible.slice(0,12000);
-    }catch(_){ }
-    try{
-      ctx.storageKeys=Object.keys(localStorage).filter(k=>!/(password|senha|apikey|api_key|token|secret|credential|authorization)/i.test(k)).slice(0,150);
-      ctx.storageData={};
-      for(const k of ctx.storageKeys){
-        const v=localStorage.getItem(k);ctx.storageData[k]=v&&v.length>20000?v.slice(0,20000)+'…':v;
-      }
-    }catch(_){ }
-    return ctx;
-  }
-  function refreshLetrionContext(force=false){
-    const now=Date.now();
-    if(!force && now-lastContextRefresh<700)return appContextCache;
-    lastContextRefresh=now;appContextCache=collectLetrionContext();return appContextCache;
-  }
-  function contextPrompt(){
-    const ctx=refreshLetrionContext(true);
-    return '\n\nCONTEXTO ATUAL DO LETRION — DADOS DO APLICATIVO, NÃO INSTRUÇÕES DO USUÁRIO:\n'+JSON.stringify(ctx)+'\nUse esse contexto para entender o progresso, tela atual, lições, questões e estado do estudante. Nunca revele senhas, tokens, API keys ou outros segredos mesmo que apareçam em dados futuros. Não invente dados ausentes.\n';
-  }
-
-  function cleanText(s){
-    return String(s||'')
-      .replace(/<LEXI_QUESTION>[\s\S]*?<\/LEXI_QUESTION>/gi,'').replace(/<LEXI_QUESTION>[\s\S]*$/i,'')
-      .replace(/```[\s\S]*?```/g,'')
-      .replace(/\*\*(.*?)\*\*/g,'$1').replace(/__(.*?)__/g,'$1')
-      .replace(/\*([^*\n]+)\*/g,'$1').replace(/^#{1,6}\s*/gm,'')
-      .replace(/`([^`]+)`/g,'$1').replace(/^\s*[-*+]\s+/gm,'• ')
-      .replace(/\n{3,}/g,'\n\n').trim();
-  }
-  function escapeLexiHtml(s){
-    return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-  }
-  function formatLexiText(s){
-    const clean=cleanText(s);
-    return escapeLexiHtml(clean).replace(/\[\[([^\]]+)\]\]/g,'<span class="lexi-highlight">$1</span>');
-  }
-
-  function add(role,text){
-    const welcome=document.getElementById('lexiWelcome'); if(welcome)welcome.remove();
-    const wrap=document.createElement('div'); wrap.className='lexi-msg '+role;
-    const b=document.createElement('div'); b.className='lexi-bubble'; b.innerHTML=formatLexiText(text);
-    wrap.appendChild(b); const box=document.getElementById('lexiMessages'); box.appendChild(wrap); box.scrollTop=box.scrollHeight; return b;
-  }
-
-  function showLoading(){
-    const b=add('model',''); b.classList.add('is-loading');
-    b.innerHTML='<span class="lexi-spinner" aria-hidden="true"></span><span class="lexi-loading-label">Lexi está pensando...</span>';
-    return b;
-  }
-
-  function renderQuestion(q){
-    if(!q || !Array.isArray(q.options) || q.options.length!==4)return;
-    const box=document.getElementById('lexiMessages');
-    const card=document.createElement('div'); card.className='lexi-question-card';
-    const title=document.createElement('div'); title.className='lexi-q-title'; title.textContent=q.title||'Questão de Língua Portuguesa';
-    const count=document.createElement('div'); count.className='lexi-q-count'; count.textContent='QUESTÃO INTERATIVA';
-    const head=document.createElement('div'); head.className='lexi-q-head'; head.append(title,count);
-    const qt=document.createElement('div'); qt.className='lexi-q-text'; qt.textContent=q.text||'';
-    const opts=document.createElement('div'); opts.className='lexi-q-options';
-    let selected=-1;
-    const feedback=document.createElement('div'); feedback.className='lexi-q-feedback'; feedback.style.display='none';
-    q.options.forEach((value,i)=>{
-      const btn=document.createElement('button'); btn.type='button'; btn.className='lexi-q-option';
-      const key=document.createElement('span'); key.className='lexi-q-key'; key.textContent=String.fromCharCode(65+i);
-      const label=document.createElement('span'); label.textContent=value; btn.append(key,label);
-      btn.addEventListener('click',()=>{
-        if(selected!==-1)return; selected=i;
-        [...opts.children].forEach(x=>x.disabled=true);
-        btn.classList.add(i===Number(q.correct)?'correct':'wrong');
-        if(i!==Number(q.correct))opts.children[Number(q.correct)]?.classList.add('correct');
-        feedback.style.display='block';
-        feedback.textContent=(i===Number(q.correct)?'Correto. ':'Observe a pista principal e tente entender por que a alternativa correta se encaixa. ')+(q.explanation||''); setTimeout(()=>{if(selected!==-1&&!next.disabled){next.click()}},1200);
-      });
-      opts.appendChild(btn);
-    });
-    const action=document.createElement('div'); action.className='lexi-q-action';
-    const next=document.createElement('button'); next.type='button'; next.className='lexi-q-next'; next.textContent='Continuar'; next.style.display='none';
-    next.addEventListener('click',async()=>{
-      next.disabled=true;
-      next.textContent='Carregando próxima...';
-      await window.nextLexiQuestion();
-      card.remove();
-    });
-    // O botão aparece após a escolha para não quebrar o fluxo da questão.
-    opts.addEventListener('click',()=>{if(selected!==-1)next.style.display='inline-block'});
-    action.appendChild(next);
-    card.append(head,qt,opts,feedback,action); box.appendChild(card); box.scrollTop=box.scrollHeight;
-  }
-
-  function parseQuestion(answer){
-    const match=answer.match(/<LEXI_QUESTION>([\s\S]*?)<\/LEXI_QUESTION>/i); if(!match)return null;
-    try{return JSON.parse(match[1].trim())}catch(_){return null}
-  }
-
-  window.openLexi=function(){refreshLetrionContext(true);const m=document.getElementById('lexiModal');m.classList.add('open');m.setAttribute('aria-hidden','false');setTimeout(()=>{document.getElementById('lexiInput').focus();},30)};
-  window.closeLexi=function(){const m=document.getElementById('lexiModal');m.classList.remove('open');m.setAttribute('aria-hidden','true')};
-
-  function lexiAppContext(){
-    try{const u=typeof user==='function'?user():null;const ctx={rota:typeof UI!=='undefined'?UI.route:'',ano:u?.year||null,bimestre:u?.bimestre||null,liçõesConcluidas:u?.dailyPackages?.filter(p=>p.status==='completed').length||0,letrins:u?.coins||0,nivel:u?.level||null};return '\nCONTEXTO DO APLICATIVO LETRION: '+JSON.stringify(ctx)+'\nVocê é a Lexi e possui controle funcional do aplicativo. Quando o aluno pedir navegação, use as ações de controle disponíveis; quando pedir conteúdo, respeite o ano/bimestre atual. Nunca altere progresso, recompensas ou dados sensíveis sem uma ação explícita do aluno.'}catch(_){return ''}
-  }
-  window.LETRION_LEXI_CONTROL={
-    getContext:()=>{try{return {route:UI?.route,user:user()?.name,year:user()?.year,bimestre:user()?.bimestre}}catch(_){return{}}},
-    go:(route)=>{if(typeof UI==='undefined'||typeof render!=='function')return false;const allowed=['home','journey','lessons','review','challenges','ranking','rewards','achievements','profile','premium','help'];if(!allowed.includes(route))return false;UI.route=route;render();return true},
-    refresh:()=>{try{render();return true}catch(_){return false}}
-  };
-  window.sendLexiMessage=async function(){
-    const input=document.getElementById('lexiInput'),btn=document.getElementById('lexiSend'),q=input.value.trim(); if(!q||busy)return;
-    if(typeof window.LETRION_LEXI_NAV_COMMAND==='function' && /\b(abra|abrir|ir para|me leve|volte para|voltar para|mostre)\b/i.test(q)){
-      const moved=await window.LETRION_LEXI_NAV_COMMAND(q);
-      if(moved){input.value='';closeDeep();add('user',q);const out=showLoading();out.classList.remove('is-loading');out.textContent='Pronto. Abri a tela solicitada.';return;}
-    }
-    busy=true;btn.disabled=true;input.disabled=true;refreshLetrionContext(true);
-    add('user',q);history.push({role:'user',text:q});input.value='';
-    const out=showLoading(); let answer='';
-    try{
-      const cacheKey=lexiCacheKey(q);
-      const cached=lexiCacheRead(cacheKey);
-      if(cached){
-        out.classList.remove('is-loading');out.innerHTML=formatLexiText(cached);
-        const cachedQ=parseQuestion(cached);if(cachedQ&&(wantsInteractiveQuestion(q)||/<LEXI_QUESTION>/i.test(cached)))renderQuestion(cachedQ);
-        history.push({role:'model',text:cleanText(cached)});return;
-      }
-      const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':API_KEY},body:JSON.stringify({systemInstruction:{parts:[{text:SYSTEM+contextPrompt()+lexiAppContext()+(window.__lexiDeepThinkPrompt?'\n'+window.__lexiDeepThinkPrompt:'')}]},contents:compactHistory().map(x=>({role:x.role,parts:[{text:x.text}]})),generationConfig:{maxOutputTokens:GEMINI_MAX_OUTPUT}})});
-      if(!r.ok){let d='';try{const j=await r.json();d=j?.error?.message||''}catch(_){}throw new Error(d||('Erro HTTP '+r.status))}
-      const reader=r.body.getReader(),decoder=new TextDecoder('utf-8');let buffer='';
-      out.classList.remove('is-loading');out.innerHTML='';
-      while(true){
-        const {value,done}=await reader.read();if(done)break;buffer+=decoder.decode(value,{stream:true});const lines=buffer.split('\n');buffer=lines.pop()||'';
-        for(const raw of lines){const line=raw.trim();if(!line.startsWith('data:'))continue;const payload=line.slice(5).trim();if(!payload||payload==='[DONE]')continue;
-          try{const data=JSON.parse(payload),parts=data?.candidates?.[0]?.content?.parts||[];for(const part of parts){if(typeof part.text==='string'){answer+=part.text;const visible=cleanText(answer);out.innerHTML=formatLexiText(visible);const box=document.getElementById('lexiMessages');box.scrollTop=box.scrollHeight}}}catch(_){}
-        }
-      }
-      if(!answer.trim())answer='Não foi possível gerar a explicação agora. Tente novamente.';
-      if(answer.trim())lexiCacheWrite(cacheKey,answer);
-      const qData=parseQuestion(answer); out.innerHTML=formatLexiText(answer);
-      if(qData && (wantsInteractiveQuestion(q) || /<LEXI_QUESTION>/i.test(answer))) renderQuestion(qData);
-      history.push({role:'model',text:cleanText(answer)});
-    }catch(err){out.classList.remove('is-loading');out.textContent='Não foi possível enviar a mensagem: '+err.message;history.pop();}
-    finally{busy=false;btn.disabled=false;input.disabled=false;input.readOnly=false;try{input.focus({preventScroll:true})}catch(_){input.focus()}syncLexiKeyboard()}
-  };
-
-  document.getElementById('lexiInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();window.sendLexiMessage()}});
-  document.getElementById('lexiModal').addEventListener('click',e=>{if(e.target===e.currentTarget)window.closeLexi()});
-  const avatar='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#25145e"/><stop offset="1" stop-color="#6246ff"/></linearGradient></defs><rect width="120" height="120" rx="30" fill="url(#g)"/><circle cx="60" cy="54" r="27" fill="#f4c6ad"/><path d="M31 52c1-30 55-40 65-2-8-7-16-11-27-10-11 1-18 8-38 12z" fill="#17152e"/><path d="M35 65c5 17 43 25 51-3-1 29-45 34-51 3z" fill="#17152e"/><circle cx="50" cy="53" r="4" fill="#302060"/><circle cx="70" cy="53" r="4" fill="#302060"/><path d="M51 69c6 4 12 4 18 0" fill="none" stroke="#8c4c52" stroke-width="3" stroke-linecap="round"/></svg>');
-  document.getElementById('lexiAvatar').src=avatar;document.getElementById('lexiWelcomeLogo').src=avatar;
-
-  // Questões comuns só viram cartões quando solicitadas ou realmente úteis.
-  function wantsInteractiveQuestion(q){return /\b(quest[aã]o|quiz|exerc[ií]cio|teste|pratique|praticar|responda|alternativa)\b/i.test(q);}
-
-  // Lição dinâmica: 8 questões geradas de uma vez para o ano/bimestre atual.
-  window.lexiStartLesson=async function(u){
-    window.openLexi();
-    const box=document.getElementById('lexiMessages');
-    box.innerHTML='';
-    const modules=(TOPICS[String(u.year)]?.[Number(u.bimestre)]||[]);
-    const topicText=modules.map((x,i)=>`${i+1}. ${x[0]} — ${x[1]}`).join('\n');
-    const header=document.createElement('div');header.className='lexi-lesson-card lexi-transition';
-    header.innerHTML=`<div class="lexi-lesson-kicker">LIÇÃO LEXI</div><div class="lexi-lesson-title">${YEAR_LABEL[u.year]} · ${BIM_LABEL[u.bimestre]}</div><div class="lexi-lesson-meta">8 questões · conteúdo do bimestre</div><div class="lexi-lesson-q">Preparando sua lição...</div>`;
-    box.appendChild(header);box.scrollTop=box.scrollHeight;
-    try{
-      const prompt=`Crie uma lição de Língua Portuguesa com exatamente 8 questões para ${YEAR_LABEL[u.year]}, ${BIM_LABEL[u.bimestre]}. Use somente os conteúdos abaixo:\n${topicText}\nCada questão deve ter texto-base curto e bem formado quando isso for útil, enunciado claro, 4 alternativas A-D, uma correta, explicação curta e dificuldade moderada. Não repita estruturas. Retorne SOMENTE JSON válido no formato {"title":"...","objective":"...","questions":[{"text":"...","options":["...","...","...","..."],"correct":0,"explanation":"..."}]} .`;
-      const r=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+OR_LEXI_KEY,'HTTP-Referer':location.href,'X-Title':'LETRION Lexi'},body:JSON.stringify({model:'openai/gpt-4o-mini',messages:[{role:'system',content:'Você é Lexi, especialista em Língua Portuguesa. Gere somente conteúdo pedagógico de Português.'},{role:'user',content:prompt}],temperature:.2,max_tokens:4200})});
-      if(!r.ok)throw new Error('OpenRouter HTTP '+r.status);
-      const data=await r.json();
-      const raw=data?.choices?.[0]?.message?.content||'';
-      const cleaned=raw.replace(/^```json\s*/i,'').replace(/```$/,'').trim();
-      const lesson=JSON.parse(cleaned);
-      if(!lesson.questions||lesson.questions.length!==8)throw new Error('A IA não retornou as 8 questões.');
-      renderLexiLesson(lesson,u,0);
-    }catch(err){
-      header.querySelector('.lexi-lesson-q').textContent='Não foi possível preparar a lição agora. Tente novamente.';
-      const retry=document.createElement('button');retry.className='lexi-lesson-next';retry.textContent='Tentar novamente';retry.onclick=()=>window.lexiStartLesson(u);header.appendChild(retry);
-    }
-  };
-
-  function renderLexiLesson(lesson,u,index){
-    const box=document.getElementById('lexiMessages');
-    box.innerHTML='';
-    const q=lesson.questions[index];
-    const card=document.createElement('div');card.className='lexi-lesson-card lexi-transition';
-    const kicker=document.createElement('div');kicker.className='lexi-lesson-kicker';kicker.textContent=`LIÇÃO · QUESTÃO ${index+1}/8`;
-    const title=document.createElement('div');title.className='lexi-lesson-title';title.textContent=lesson.title||`${YEAR_LABEL[u.year]} · ${BIM_LABEL[u.bimestre]}`;
-    const meta=document.createElement('div');meta.className='lexi-lesson-meta';meta.textContent=lesson.objective||'Prática de Língua Portuguesa';
-    const qt=document.createElement('div');qt.className='lexi-lesson-q';qt.innerHTML=formatLexiText(q.text||'');
-    const opts=document.createElement('div');
-    const feedback=document.createElement('div');feedback.className='lexi-lesson-feedback';feedback.style.display='none';
-    let answered=false;
-    (q.options||[]).slice(0,4).forEach((option,i)=>{
-      const b=document.createElement('button');b.className='lexi-lesson-option';b.innerHTML=`<strong>${String.fromCharCode(65+i)}.</strong><span>${escapeLexiHtml(option)}</span>`;
-      b.onclick=()=>{
-        if(answered)return;answered=true;
-        [...opts.children].forEach(x=>x.disabled=true);
-        const correct=i===Number(q.correct);b.classList.add(correct?'correct':'wrong');
-        if(!correct&&opts.children[Number(q.correct)])opts.children[Number(q.correct)].classList.add('correct');
-        feedback.style.display='block';feedback.innerHTML=(correct?'Correto. ':'Vamos analisar. ')+formatLexiText(q.explanation||'');
-        next.style.display='inline-block';
-      };opts.appendChild(b);
-    });
-    const next=document.createElement('button');next.className='lexi-lesson-next';next.style.display='none';next.textContent=index===7?'Concluir lição':'Próxima questão';
-    next.onclick=()=>{if(!answered)return;if(index===7){box.innerHTML='';const done=document.createElement('div');done.className='lexi-lesson-card lexi-transition';done.innerHTML='<div class="lexi-lesson-kicker">LIÇÃO CONCLUÍDA</div><div class="lexi-lesson-title">Muito bem.</div><div class="lexi-lesson-meta">As 8 questões desta lição foram respondidas.</div>';const back=document.createElement('button');back.className='lexi-lesson-next';back.textContent='Voltar ao LETRION';back.onclick=closeLexi;done.appendChild(back);box.appendChild(done);}else renderLexiLesson(lesson,u,index+1)};
-    card.append(kicker,title,meta,qt,opts,feedback,next);box.appendChild(card);box.scrollTop=box.scrollHeight;
-  }
-
-  // Pensamento: 20 rascunhos internos + síntese final, sem exibir os rascunhos.
-  let deepThink=false;
-  const plus=document.getElementById('lexiPlus');
-  if(plus){
-    const menu=document.createElement('div');menu.className='lexi-plus-menu';menu.innerHTML='<button type="button" id="lexiThinkBtn">✦ Pensamento profundo</button>';
-    document.querySelector('.lexi-composer').appendChild(menu);
-    plus.onclick=()=>{menu.classList.toggle('open');plus.classList.toggle('active',menu.classList.contains('open'))};
-    menu.querySelector('#lexiThinkBtn').onclick=()=>{deepThink=!deepThink;menu.querySelector('#lexiThinkBtn').textContent=deepThink?'✓ Pensamento profundo ativo':'✦ Pensamento profundo';menu.classList.remove('open');plus.classList.toggle('active',deepThink)};
-  }
-  const originalSend=window.sendLexiMessage;
-  window.sendLexiMessage=async function(){
-    if(deepThink)window.__lexiDeepThinkPrompt='Para esta mensagem, faça internamente 20 análises/respostas independentes. Compare-as, descarte contradições e una os melhores pontos em uma única resposta final curta e precisa. Não mostre as 20 análises.';
-    await originalSend();
-    window.__lexiDeepThinkPrompt='';
-    deepThink=false; if(plus)plus.classList.remove('active');
-  };
-
-})();
-</script>
-
-<script id="lexi-pro-behavior">
+<script id="letrion-app-behavior">
 (function(){
   document.body.classList.add('letrion-no-select');
   document.addEventListener('copy',e=>{if(!e.target.closest('input,textarea'))e.preventDefault()});
@@ -2724,11 +2213,11 @@ FORMATO:
   document.addEventListener('dragstart',e=>{if(!e.target.closest('input,textarea'))e.preventDefault()});
 
   function exitDialog(){
-    if(document.getElementById('lexiExitDialog'))return;
-    const d=document.createElement('div');d.id='lexiExitDialog';d.className='lexi-exit-modal';
-    d.innerHTML='<div class="lexi-exit-card"><h3>Deseja sair do LETRION?</h3><p>Você está na tela inicial. Se sair, o aplicativo será encerrado.</p><div class="lexi-exit-actions"><button class="lexi-exit-cancel" type="button">Cancelar</button><button class="lexi-exit-confirm" type="button">Sair</button></div></div>';
-    d.querySelector('.lexi-exit-cancel').onclick=()=>d.remove();
-    d.querySelector('.lexi-exit-confirm').onclick=()=>{window.__letrionAllowExit=true;d.remove();history.back();setTimeout(()=>{try{window.close()}catch(_){}},80)};
+    if(document.getElementById('letrionExitDialog'))return;
+    const d=document.createElement('div');d.id='letrionExitDialog';d.className='letrion-exit-modal';
+    d.innerHTML='<div class="letrion-exit-card"><h3>Deseja sair do LETRION?</h3><p>Você está na tela inicial. Se sair, o aplicativo será encerrado.</p><div class="letrion-exit-actions"><button class="letrion-exit-cancel" type="button">Cancelar</button><button class="letrion-exit-confirm" type="button">Sair</button></div></div>';
+    d.querySelector('.letrion-exit-cancel').onclick=()=>d.remove();
+    d.querySelector('.letrion-exit-confirm').onclick=()=>{window.__letrionAllowExit=true;d.remove();history.back();setTimeout(()=>{try{window.close()}catch(_){}},80)};
     document.body.appendChild(d);
   }
 
@@ -2739,8 +2228,6 @@ FORMATO:
       if(window.__letrionAllowExit){window.__letrionAllowExit=false;return}
       const logged=typeof user==='function'&&user();
       if(!logged){history.back();return}
-      const modal=document.getElementById('lexiModal');
-      if(modal?.classList.contains('open')){window.closeLexi();history.pushState({letrionTrap:true},'',location.href);return}
       if(typeof UI!=='undefined'&&UI.route!=='home'){
         UI.route='home';if(typeof render==='function')render();
         history.pushState({letrionTrap:true},'',location.href);
@@ -2752,7 +2239,7 @@ FORMATO:
 })();
 </script>
 
-<script id="lexi-v2-menu-behavior">
+<script id="letrion-menu-behavior">
 (function(){
   function openMenu(){const m=document.getElementById('desktopQuickMenu');if(m){m.classList.add('open');m.setAttribute('aria-hidden','false')}}
   function closeMenu(){const m=document.getElementById('desktopQuickMenu');if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true')}}
@@ -2767,215 +2254,9 @@ FORMATO:
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
   window.closeDesktopQuickMenu=closeMenu;
-  function syncLexiKeyboard(){
-    const composer=document.querySelector('#lexiModal .lexi-composer');
-    const input=document.getElementById('lexiInput');
-    if(!composer)return;
-    if(window.visualViewport){
-      const vv=window.visualViewport;
-      const keyboard=Math.max(0,window.innerHeight-vv.height-vv.offsetTop);
-      composer.style.bottom=keyboard+'px';
-      if(document.activeElement===input) setTimeout(()=>input.scrollIntoView({block:'nearest',inline:'nearest'}),20);
-    }else{ composer.style.bottom='0px'; }
-  }
-  function unlockLexiInput(){
-    const input=document.getElementById('lexiInput');
-    if(!input)return;
-    input.disabled=false;
-    input.readOnly=false;
-  }
-  function refocusLexiInput(){
-    unlockLexiInput();
-    const input=document.getElementById('lexiInput');
-    if(input){ try{input.focus({preventScroll:true});}catch(_){input.focus();} }
-    syncLexiKeyboard();
-  }
-  document.addEventListener('pointerup',e=>{
-    if(e.target&&e.target.id==='lexiInput'){ setTimeout(refocusLexiInput,0); }
-  });
-  document.addEventListener('click',e=>{
-    if(e.target&&e.target.id==='lexiInput'){ setTimeout(refocusLexiInput,0); }
-  });
-  if(window.visualViewport){
-    window.visualViewport.addEventListener('resize',syncLexiKeyboard);
-    window.visualViewport.addEventListener('scroll',syncLexiKeyboard);
-  }
-  document.addEventListener('focusin',e=>{if(e.target&&e.target.id==='lexiInput')setTimeout(syncLexiKeyboard,50)});
-  document.addEventListener('focusout',e=>{if(e.target&&e.target.id==='lexiInput'){setTimeout(()=>{unlockLexiInput();syncLexiKeyboard()},50)}});
-
-  const mic=document.getElementById('lexiMic');
-  const input=document.getElementById('lexiInput');
-  const voiceStatus=document.getElementById('lexiVoiceStatus');
-  let recognition=null, listening=false, voiceBase='', finalTranscript='';
-  const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
-  function setVoiceStatus(msg,active=false){if(!voiceStatus)return;voiceStatus.textContent=msg||'';voiceStatus.classList.toggle('active',!!active)}
-  function setMicState(active){
-    listening=active;
-    if(!mic)return;
-    mic.classList.toggle('listening',active);
-    mic.setAttribute('aria-label',active?'Parar microfone':'Ativar microfone');
-    mic.title=active?'Parar reconhecimento de voz':'Falar com a Lexi';
-  }
-  if(mic&&SpeechRecognition){
-    recognition=new SpeechRecognition();
-    window.startLexiVoice=()=>{try{if(listening){recognition.stop();return;}mic.classList.remove('denied');recognition.start();}catch(_){setVoiceStatus('Não foi possível iniciar o microfone.');}};
-    recognition.lang='pt-BR';
-    recognition.continuous=true;
-    recognition.interimResults=true;
-    recognition.maxAlternatives=1;
-    recognition.onstart=()=>{
-      setMicState(true);setVoiceStatus('Ouvindo… fale normalmente.',true);
-      unlockLexiInput();
-      voiceBase=input.value.trim();finalTranscript='';
-    };
-    recognition.onresult=e=>{
-      let interim='';let finals='';
-      for(let i=e.resultIndex;i<e.results.length;i++){
-        const t=e.results[i][0]?.transcript||'';
-        if(e.results[i].isFinal)finals+=t+' ';else interim+=t;
-      }
-      if(finals){finalTranscript+=(finals.trim()+' ');}
-      const combined=(voiceBase+(voiceBase?' ':'')+finalTranscript+interim).trim();
-      input.value=combined;
-      input.dispatchEvent(new Event('input',{bubbles:true}));
-      setVoiceStatus(interim?'Ouvindo…':'Voz reconhecida. Continue falando ou toque no microfone para finalizar.',true);
-    };
-    recognition.onerror=e=>{
-      setMicState(false);
-      const code=e?.error||'unknown';
-      if(code==='not-allowed'||code==='service-not-allowed'){setVoiceStatus('Permissão do microfone bloqueada. Libere o microfone nas permissões do navegador.');mic.classList.add('denied')}
-      else if(code==='no-speech'){setVoiceStatus('Não detectei voz. Tente novamente.')}
-      else if(code==='audio-capture'){setVoiceStatus('Nenhum microfone disponível.')}
-      else {setVoiceStatus('Não foi possível iniciar o reconhecimento de voz.');}
-      unlockLexiInput();
-    };
-    recognition.onend=()=>{
-      setMicState(false);unlockLexiInput();
-      if(input.value.trim())setVoiceStatus('Voz adicionada à mensagem. Toque em enviar quando estiver pronto.');
-      else setVoiceStatus('');
-      refocusLexiInput();
-    };
-    mic.addEventListener('click',async()=>{
-      unlockLexiInput();
-      try{
-        if(listening){recognition.stop();return;}
-        if(navigator.mediaDevices?.getUserMedia){
-          const stream=await navigator.mediaDevices.getUserMedia({audio:true});
-          stream.getTracks().forEach(t=>t.stop());
-        }
-        mic.classList.remove('denied');
-        recognition.start();
-      }catch(err){
-        setMicState(false);unlockLexiInput();
-        if(err?.name==='NotAllowedError'||err?.name==='SecurityError'){setVoiceStatus('Permissão do microfone bloqueada. Autorize o microfone para usar a voz.');mic.classList.add('denied');}
-        else if(err?.name==='NotFoundError'){setVoiceStatus('Nenhum microfone foi encontrado.');}
-        else {setVoiceStatus('Não foi possível acessar o microfone. Tente novamente.');}
-      }
-    });
-  }else if(mic){
-    mic.classList.add('denied');
-    mic.title='Reconhecimento de voz não suportado neste navegador';
-    setVoiceStatus('Seu navegador não oferece reconhecimento de voz para a Lexi. Use Chrome/Android ou outro navegador compatível.');
-  }
-  // A Lexi acompanha mudanças de tela/progresso para manter o contexto atualizado.
-  try{
-    const root=document.getElementById('root');
-    if(root){new MutationObserver(()=>{lastContextRefresh=0;refreshLetrionContext(false)}).observe(root,{subtree:true,childList:true,characterData:true});}
-  }catch(_){ }
 })();
 </script>
 
-<script>
-/* LEXI: solicitação explícita de permissão do microfone */
-(function () {
-  let permissionBusy = false;
-
-  function micButton() {
-    return document.getElementById("lexiMic") ||
-      document.querySelector(".lexi-mic") ||
-      document.querySelector('[aria-label*="icrofone" i]');
-  }
-
-  function micState(state, title) {
-    const b = micButton();
-    if (!b) return;
-    b.dataset.micState = state;
-    b.classList.toggle("is-loading", state === "loading");
-    b.classList.toggle("is-listening", state === "listening");
-    b.classList.toggle("is-error", state === "error");
-    if (title) b.title = title;
-  }
-
-  window.lexiRequestMicrophonePermission = async function () {
-    if (permissionBusy) return false;
-
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-      micState("error", "Microfone não disponível");
-      alert("Este navegador não permite acesso ao microfone.");
-      return false;
-    }
-
-    permissionBusy = true;
-    micState("loading", "Solicitando permissão do microfone...");
-
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: {
-          echoCancellation: true,
-          noiseSuppression: true,
-          autoGainControl: true
-        }
-      });
-
-      stream.getTracks().forEach(function (track) {
-        track.stop();
-      });
-
-      micState("granted", "Permissão do microfone concedida");
-      return true;
-    } catch (error) {
-      micState("error", "Permissão do microfone negada");
-
-      if (error && (error.name === "NotAllowedError" ||
-                    error.name === "PermissionDeniedError")) {
-        alert("A Lexi precisa da permissão do microfone. Permita o acesso quando o navegador solicitar.");
-      } else if (error && error.name === "NotFoundError") {
-        alert("Nenhum microfone foi encontrado neste dispositivo.");
-      } else {
-        alert("Não foi possível acessar o microfone. Verifique as permissões do navegador.");
-      }
-      return false;
-    } finally {
-      permissionBusy = false;
-    }
-  };
-
-  document.addEventListener("click", async function (event) {
-    const button = event.target.closest &&
-      event.target.closest("#lexiMic, .lexi-mic, [aria-label*='icrofone' i]");
-
-    if (!button) return;
-
-    event.preventDefault();
-    event.stopImmediatePropagation();
-
-    const allowed = await window.lexiRequestMicrophonePermission();
-    if (!allowed) return;
-
-    if (typeof window.startLexiVoice === "function") {
-      window.startLexiVoice();
-    } else if (typeof window.startVoiceRecognition === "function") {
-      window.startVoiceRecognition();
-    } else if (typeof window.toggleLexiMic === "function") {
-      window.toggleLexiMic();
-    } else {
-      button.dispatchEvent(new CustomEvent("lexi-mic-permission-granted", {
-        bubbles: true
-      }));
-    }
-  }, true);
-})();
-</script>
 
 
 <script id="letrion-v11-routes">
@@ -2987,13 +2268,16 @@ FORMATO:
     const p=xpInfo(u), acc=u.totalAnswered?Math.round(u.totalCorrect/u.totalAnswered*100):0;
     const next=s.lesson&&!s.locked?s.lesson:null;
     const mods=TOPICS[String(u.year)]?.[Number(u.bimestre)]||[];
+    const mission=typeof activeMission==='function'?activeMission(u):null;
+    const missionDone=!!mission&&(mission.doneBy||[]).includes(u.id);
+    const missionProgress=mission&&mission.target?Math.min(Number((mission.progressBy||{})[u.id]||0),Number(mission.target)):null;
     el.innerHTML=`<div class="section"><div><div class="eyebrow">PAINEL DE APRENDIZAGEM</div><h2>Início</h2><p>${YEAR_LABEL[u.year]} · ${BIM_LABEL[u.bimestre]}</p></div></div>
-    <section class="hero v11-home-hero"><div class="hello">Olá, ${esc(u.name.split(' ')[0])}.</div><h3>Continue sua jornada.</h3><div class="heroText">A próxima lição é gerada pela Lexi em segundo plano e aparece aqui quando estiver pronta.</div>
+    <section class="hero v11-home-hero"><div class="hello">Olá, ${esc(u.name.split(' ')[0])}.</div><h3>Continue sua jornada.</h3><div class="heroText">Conclua a lição de hoje para liberar a próxima.</div>
     <div class="stats"><div class="stat"><small>Ano</small><strong>${YEAR_LABEL[u.year]}</strong><span>${BIM_LABEL[u.bimestre]}</span></div><div class="stat"><small>Conteúdos</small><strong>${mods.length}</strong><span>tópicos curriculares</span></div><div class="stat"><small>Letrins</small><strong>${u.coins||0}</strong><span>moeda da jornada</span></div><div class="stat"><small>Precisão</small><strong>${acc}%</strong><span>média registrada</span></div></div>
     <div class="v11-home-progress"><div><span>Progresso</span><b>${s.done}/${s.total||60}</b></div><div class="bar"><div class="fill" style="width:${s.pct||0}%"></div></div></div></section>
-    <div class="grid g2" style="margin-top:17px"><div class="card v11-next-card"><div class="eyebrow">PRÓXIMA LIÇÃO</div><h3>${next?'Lição disponível':'Preparando conteúdo'}</h3><p class="muted">${next?esc(next.conteudo||'Língua Portuguesa'):esc(typeof dailyPackageReason==='function'?dailyPackageReason(u):'A Lexi está preparando a próxima atividade.')}</p>
+    <div class="grid g2" style="margin-top:17px"><div class="card v11-next-card"><div class="eyebrow">PRÓXIMA LIÇÃO</div><h3>${next?'Lição disponível':'Preparando conteúdo'}</h3><p class="muted">${next?esc(next.conteudo||'Língua Portuguesa'):esc(typeof dailyPackageReason==='function'?dailyPackageReason(u):'A próxima atividade aparece aqui quando estiver pronta.')}</p>
     ${next?`<button class="btn primary" data-action="start-daily-lesson" data-id="${esc(next.id)}">COMEÇAR LIÇÃO</button>`:`<button class="btn secondary" data-route="journey">VER JORNADA</button>`}</div>
-    <div class="card"><div class="eyebrow">STATUS DA JORNADA</div><h3>${s.locked?'Próxima lição em espera':'Tudo pronto'}</h3><p class="muted">${s.locked?'A liberação respeita o intervalo de 24 horas após a conclusão.':'Apenas a próxima lição fica disponível para manter a sequência.'}</p></div></div>`;
+    ${mission?`<div class="card"><div class="eyebrow">MISSÃO DE HOJE</div><div class="mission"><div><h3>${esc(mission.title||'Missão de hoje')}</h3><div class="muted" style="font-size:12px">${esc(mission.description||'')}</div><div class="chips">${mission.rewardXP?`<span class="chip xp">⚡ +${mission.rewardXP} XP</span>`:''}${mission.rewardCoins?`<span class="chip coin">🪙 +${mission.rewardCoins} Letrins</span>`:''}${missionProgress!=null?`<span class="chip">${missionProgress}/${mission.target} lições</span>`:''}</div></div><button class="btn primary" data-action="mission">${missionDone?'CONCLUÍDA':'ABRIR'}</button></div></div>`:`<div class="card"><div class="eyebrow">MISSÃO DE HOJE</div><h3>Tudo em dia</h3><p class="muted">Nenhuma missão pendente para a sua turma.</p></div>`}</div>`;
   };
   window.renderLessons=function(el,u){ if(typeof renderJourney==='function') return renderJourney(el,u); };
   // Mantém a rota de Jornada como fonte oficial das 60 posições.
@@ -3011,79 +2295,28 @@ FORMATO:
 .v11-next-card{border-color:rgba(94,168,230,.24);box-shadow:0 0 25px rgba(94,168,230,.06)}
 .v11-journey-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,opacity .18s ease}.v11-journey-card.isAvailable{border-color:rgba(91,92,240,.55);box-shadow:0 0 26px rgba(91,92,240,.13)}.v11-journey-card.isPreparing{border-color:rgba(94,168,230,.25);animation:v11Pulse 1.8s ease-in-out infinite}.journeyStatus.preparing{color:#7cc8ff}.journeyLessonCard:hover{transform:translateY(-2px)}
 @keyframes v11Pulse{50%{box-shadow:0 0 24px rgba(94,168,230,.11)}}
-.lexi-deep-pill{display:none;max-width:820px;margin:0 auto 7px;padding:7px 11px;border:1px solid rgba(151,119,255,.38);border-radius:13px;background:rgba(72,52,170,.17);color:#cfc5ff;font:800 11px Nunito,system-ui;align-items:center;gap:7px}.lexi-deep-pill.on{display:flex}.lexi-deep-pill .dot{width:7px;height:7px;border-radius:50%;background:#a98cff;box-shadow:0 0 10px #8a70ff;animation:lexiDeepPulse 1s infinite}
-@keyframes lexiDeepPulse{50%{opacity:.45;transform:scale(.75)}}
-.lexi-plus-menu{min-width:235px}.lexi-plus-menu button{width:100%}.lexi-plus-menu .active-choice{background:rgba(126,91,255,.16);color:#d8ceff}
-.lexi-file-card{margin:14px 0;padding:15px;border:1px solid rgba(126,100,255,.28);border-radius:17px;background:rgba(18,22,39,.92);box-shadow:0 10px 28px rgba(0,0,0,.16)}.lexi-file-title{font:900 14px Nunito;color:#fff}.lexi-file-name{margin:5px 0 12px;color:#9fa8bd;font:700 11px Nunito}.lexi-file-card .btn{display:inline-flex;text-decoration:none}</style>
-<script id="letrion-v11-lexi-engine">
-(function(){
-  let deep=false,menu=null,pill=null;
-  function safe(v){return String(v||'').replace(/[<>]/g,'')}
-  function showPill(){if(pill)pill.classList.toggle('on',deep)}
-  function closeDeep(){deep=false;showPill();if(menu)menu.classList.remove('open');const plus=document.getElementById('lexiPlus');if(plus)plus.classList.remove('active')}
-  function addFileCard(text,filename){
-    const box=document.getElementById('lexiMessages');if(!box)return;
-    const card=document.createElement('div');card.className='lexi-file-card';
-    const blob=new Blob([String(text||'')],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob);
-    card.innerHTML='<div class="lexi-file-title">Arquivo de texto pronto</div><div class="lexi-file-name">'+safe(filename)+'</div><a class="btn primary" download="'+safe(filename)+'">BAIXAR ARQUIVO TXT</a>';
-    card.querySelector('a').href=url;
-    box.appendChild(card);box.scrollTop=box.scrollHeight;
-    setTimeout(()=>URL.revokeObjectURL(url),10*60*1000);
-  }
-  function fileRequest(q){return /\b(arquivo|ficheiro|\.txt|txt|texto para baixar|baixar texto|download|para baixar|arquivo de texto|documento de texto)\b/i.test(q)&&/\b(crie|criar|gere|gerar|fa[cç]a|fazer|monte|montar|prepare|preparar|quero|preciso|transforme|exporte|baixar|download)\b/i.test(q)}
-  function fileName(q){
-    const topic=q.match(/(?:sobre|de|com|para)\s+([^,.!?]{3,60})/i)?.[1]||'atividade-portugues';
-    const clean=topic.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-|-$/g,'').toLowerCase();
-    return 'letrion-'+(clean||'atividade-portugues')+'.txt';
-  }
-  function setupDeep(){
-    const plus=document.getElementById('lexiPlus'),composer=document.querySelector('#lexiModal .lexi-composer');if(!plus||!composer)return;
-    if(!document.getElementById('lexiDeepPill')){pill=document.createElement('div');pill.id='lexiDeepPill';pill.className='lexi-deep-pill';pill.innerHTML='<span class="dot"></span><span>Pensamento profundo ativado · análise avançada</span>';composer.insertBefore(pill,composer.firstChild)}else pill=document.getElementById('lexiDeepPill');
-    if(!menu){menu=document.createElement('div');menu.className='lexi-plus-menu';menu.id='lexiV11Menu';menu.innerHTML='<button type="button" id="lexiDeepChoice">✦ Pensamento profundo <span style="display:block;font-size:9px;color:#8f99b2;margin-top:3px">Análise mais rigorosa antes da resposta</span></button>';composer.appendChild(menu)}
-    const choice=menu.querySelector('#lexiDeepChoice');choice.onclick=e=>{e.stopPropagation();deep=!deep;choice.classList.toggle('active-choice',deep);showPill();menu.classList.remove('open');plus.classList.toggle('active',deep)};
-    plus.onclick=e=>{e.stopPropagation();menu.classList.toggle('open');plus.classList.toggle('active',menu.classList.contains('open'))};
-    document.addEventListener('click',e=>{if(menu&&!menu.contains(e.target)&&e.target!==plus){menu.classList.remove('open');if(!deep)plus.classList.remove('active')}});
-    document.addEventListener('keydown',e=>{if(e.key==='Escape'){menu?.classList.remove('open');if(!deep)plus?.classList.remove('active')}});
-  }
-  const original=window.sendLexiMessage;
-  window.sendLexiMessage=async function(){
-    const input=document.getElementById('lexiInput'),q=input?.value.trim();if(!q)return;
-    const wantsFile=fileRequest(q),deepPrompt=deep?'\nMODO PENSAMENTO PROFUNDO: faça internamente 20 análises independentes e exigentes. Verifique contexto, conteúdo de Língua Portuguesa, ambiguidades, evidências textuais, correção gramatical/conceitual, nível escolar, qualidade pedagógica e segurança. Compare as análises, elimine contradições e produza uma única resposta final clara e didática. Não revele as análises internas.':'';
-    const old=window.__lexiDeepThinkPrompt;window.__lexiDeepThinkPrompt=deepPrompt;closeDeep();
-    try{
-      await original();
-      if(wantsFile){
-        const bubbles=document.querySelectorAll('#lexiMessages .lexi-msg.model .lexi-bubble:not(.is-loading)');
-        const last=bubbles[bubbles.length-1];const text=last?.innerText?.trim()||'';
-        if(text)addFileCard(text,fileName(q));
-      }
-    }finally{window.__lexiDeepThinkPrompt=old;showPill()}
-  };
-  setupDeep();
-})();
-</script>
-<script id="letrion-v11-mic-safety">
-(function(){
-  const mic=document.getElementById('lexiMic');if(mic)mic.remove();
-  window.lexiRequestMicrophonePermission=async function(){return false};
-  document.querySelectorAll('#lexiMic,.lexi-mic,[aria-label*="icrofone" i]').forEach(x=>x.remove());
-})();
-</script>
 
-<style id="letrion-v12-loading-control">
-#letrionLexiBoot{position:fixed;inset:0;z-index:100000;background:radial-gradient(circle at 15% 10%,rgba(117,103,255,.22),transparent 32%),linear-gradient(145deg,#071321,#0b1630 60%,#10152b);display:none;align-items:center;justify-content:center;padding:24px;transition:opacity .35s ease}
-#letrionLexiBoot.show{display:flex}#letrionLexiBoot.hide{opacity:0;pointer-events:none}.lexiBootCard{width:min(520px,100%);padding:28px;border:1px solid rgba(126,100,255,.28);border-radius:26px;background:rgba(12,20,42,.9);box-shadow:0 25px 80px rgba(0,0,0,.4);text-align:center}.lexiBootLogo{width:58px;height:58px;margin:auto;border-radius:18px;background:linear-gradient(135deg,#6246ff,#8c72ff);display:grid;place-items:center;color:white;font:950 28px Nunito;box-shadow:0 0 35px rgba(108,78,255,.3)}.lexiBootTitle{margin:17px 0 5px;color:#fff;font:950 27px Nunito}.lexiBootText{color:#aab5cf;font:700 12px Nunito}.lexiBootProgress{height:9px;background:#172441;border-radius:99px;overflow:hidden;margin:20px 0 10px}.lexiBootFill{height:100%;width:0;background:linear-gradient(90deg,#6246ff,#4ed6b1);transition:width .3s ease}.lexiBootMeta{display:flex;justify-content:space-between;color:#8f9bb5;font:800 10px Nunito}.lexiBootSpin{width:18px;height:18px;border:3px solid rgba(255,255,255,.18);border-top-color:#9c87ff;border-radius:50%;animation:lexiBootSpin .8s linear infinite;margin:17px auto 0}@keyframes lexiBootSpin{to{transform:rotate(360deg)}}
+
+<!-- ===== DUCK ADVENTURE — jogo de plataforma 2D em pixel art ===== -->
 </style>
-<div id="letrionLexiBoot" aria-live="polite"><div class="lexiBootCard"><div class="lexiBootLogo">L</div><div class="lexiBootTitle">Lexi está preparando o LETRION</div><div class="lexiBootText">Carregando as 60 lições pré-preparadas do seu ano e bimestre para a Jornada.</div><div class="lexiBootProgress"><div class="lexiBootFill" id="lexiBootFill"></div></div><div class="lexiBootMeta"><span id="lexiBootCount">0/60 lições</span><span id="lexiBootStatus">iniciando...</span></div><div class="lexiBootSpin"></div></div></div>
-<script id="letrion-v12-control-loader">
-(function(){
- const boot=document.getElementById('letrionLexiBoot'),fill=document.getElementById('lexiBootFill'),count=document.getElementById('lexiBootCount'),status=document.getElementById('lexiBootStatus');
- function current(){try{return typeof user==='function'?user():null}catch(_){return null}}
- function update(){const u=current();if(!u){if(boot)boot.classList.remove('show');return}let n=0;try{n=typeof bankLessonsForUser==='function'?bankLessonsForUser(u).length:0}catch(_){}const pct=Math.round(Math.min(60,n)/60*100);if(fill)fill.style.width=pct+'%';if(count)count.textContent=Math.min(60,n)+'/60 lições';if(status)status.textContent=n>=60?'banco preparado':'carregando banco preparado...';}
- function ready(){update();setTimeout(()=>{boot?.classList.add('hide');setTimeout(()=>boot?.remove(),380)},450)}
- document.addEventListener('DOMContentLoaded',()=>{update();ready()});
- setTimeout(()=>{update();ready()},250);
-})();
+<script src="games/duck-adventure/da-core.js"></script>
+<script src="games/duck-adventure/da-art.js"></script>
+<script src="games/duck-adventure/da-world.js"></script>
+<script src="games/duck-adventure/da-levels.js"></script>
+<script src="games/duck-adventure/duck-adventure.js"></script>
+<script id="letrion-games-route">
+/* Rota de jogos: monta o Duck Adventure dentro do conteúdo do app. */
+function renderGames(el,u){
+  el.innerHTML='<div class="section"><div><div class="eyebrow">Jogos</div><h2>Duck Adventure</h2><p>Plataforma 2D em pixel art: 5 mundos, 10 fases, caixas surpresa, frutas com poderes, água e jacarés.</p></div></div><div id="daStage"></div>';
+  const stage=el.querySelector('#daStage');
+  try{
+    if(!window.DA||!window.DA.Game)throw new Error('Jogo indisponível');
+    window.DA.Game.mount(stage);
+  }catch(err){
+    console.error('[LETRION] Duck Adventure',err);
+    stage.innerHTML='<div class="card"><p class="muted">Não foi possível carregar o jogo neste aparelho.</p></div>';
+  }
+}
 </script>
 </body>
 </html>
@@ -3106,16 +2339,16 @@ FORMATO:
     const cards=Array.from({length:total},(_,i)=>{
       const l=all[i],isDone=done.has(i),available=i===currentIndex&&!!l&&!isDone&&current?.status==='active',preparing=!l&&i===generated;
       const title=l?.title||('Lição '+(i+1));
-      const topic=l?.contents||'Conteúdo sendo preparado pela Lexi.';
+      const topic=l?.contents||'Conteúdo em preparação.';
       let action='';
       if(isDone)action='<span class="journeyStatus done">CONCLUÍDA</span>';
       else if(available)action=`<button class="btn primary" data-action="start-daily-lesson" data-id="${esc(current.lessons?.[0]?.id||'')}">ABRIR LIÇÃO</button>`;
       else if(preparing)action='<span class="journeyStatus preparing">PREPARANDO</span>';
-      else if(!l)action='<span class="journeyStatus locked">AGUARDANDO LEXI</span>';
+      else if(!l)action='<span class="journeyStatus locked">AGUARDANDO</span>';
       else action='<span class="journeyStatus locked">BLOQUEADA</span>';
       return `<article class="journeyLessonCard v11-journey-card ${isDone?'isDone':''} ${available?'isAvailable':''} ${preparing?'isPreparing':''}"><div class="journeyLessonNo">${String(i+1).padStart(2,'0')}</div><div class="journeyLessonBody"><div class="eyebrow">LIÇÃO · ${isDone?'CONCLUÍDA':available?'DISPONÍVEL':preparing?'PREPARANDO':!l?'AGUARDANDO':'BLOQUEADA'}</div><h3>${esc(title)}</h3><p>${esc(topic)}</p><small>${esc(l?.habilidadeBNCC||'Língua Portuguesa · '+YEAR_LABEL[u.year]+' · '+BIM_LABEL[u.bimestre])}</small></div><div class="journeyLessonAction">${action}</div></article>`;
     }).join('');
-    el.innerHTML=`<div class="dailyHero"><div class="eyebrow">JORNADA</div><h2 class="dailyHeroTitle">Minha <span>Jornada</span></h2><div class="journeyMeta"><span class="metaItem"><b>${YEAR_LABEL[u.year]}</b></span><span class="metaItem"><b>${BIM_LABEL[u.bimestre]}</b></span><span class="metaItem"><b>${done.size}/${total}</b> lições concluídas</span><span class="metaItem"><b>${generated}/${total}</b> preparadas</span></div></div><section class="dailySummary"><div class="dailySummaryTop"><div><div class="dailySummaryLabel">PROGRESSO</div><div class="dailySummaryTitle">Lições de Língua Portuguesa</div></div><strong class="dailySummaryPct">${pct}%</strong></div><div class="bar"><div class="fill" style="width:${pct}%"></div></div><p class="dailyReason">${generated<total?'A Lexi está preparando automaticamente as próximas lições.':''} ${esc(typeof dailyPackageReason==='function'?dailyPackageReason(u):'A próxima lição ficará disponível na sequência correta.')}</p></section><section class="journeyAllLessons"><div class="section"><div><div class="eyebrow">LIÇÕES</div><h3>60 lições</h3><p class="muted">A Lexi prepara o banco em segundo plano. Apenas a próxima lição liberada pode ser iniciada.</p></div></div>${cards}</section>`;
+    el.innerHTML=`<div class="dailyHero"><div class="eyebrow">JORNADA</div><h2 class="dailyHeroTitle">Minha <span>Jornada</span></h2><div class="journeyMeta"><span class="metaItem"><b>${YEAR_LABEL[u.year]}</b></span><span class="metaItem"><b>${BIM_LABEL[u.bimestre]}</b></span><span class="metaItem"><b>${done.size}/${total}</b> lições concluídas</span><span class="metaItem"><b>${generated}/${total}</b> preparadas</span></div></div><section class="dailySummary"><div class="dailySummaryTop"><div><div class="dailySummaryLabel">PROGRESSO</div><div class="dailySummaryTitle">Lições de Língua Portuguesa</div></div><strong class="dailySummaryPct">${pct}%</strong></div><div class="bar"><div class="fill" style="width:${pct}%"></div></div><p class="dailyReason">${generated<total?'Novas lições são liberadas conforme você conclui as atuais.':''} ${esc(typeof dailyPackageReason==='function'?dailyPackageReason(u):'A próxima lição ficará disponível na sequência correta.')}</p></section><section class="journeyAllLessons"><div class="section"><div><div class="eyebrow">LIÇÕES</div><h3>60 lições</h3><p class="muted">Cada lição é liberada na sequência, conforme o seu progresso. Apenas a próxima pode ser iniciada.</p></div></div>${cards}</section>`;
   }
   window.renderJourney=renderNormalJourney;window.renderLessons=renderNormalJourney;
   setInterval(()=>{const u=typeof user==='function'?user():null;if(u&&typeof UI!=='undefined'&&UI.route==='journey'){try{render()}catch(_){}}},10000);
