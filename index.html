@@ -2305,19 +2305,72 @@ loadLetrionBank().then(()=>{prime();if(user()){ensureDailyPackage(user());render
 <script src="games/duck-adventure/da-levels.js"></script>
 <script src="games/duck-adventure/duck-adventure.js"></script>
 <script id="letrion-games-route">
-/* Rota de jogos: monta o Duck Adventure dentro do conteúdo do app. */
-function renderGames(el,u){
-  el.innerHTML='<div class="section"><div><div class="eyebrow">Jogos</div><h2>Duck Adventure</h2><p>Plataforma 2D em pixel art: 5 mundos, 10 fases, caixas surpresa, frutas com poderes, água e jacarés.</p></div></div><div id="daStage"></div>';
-  const stage=el.querySelector('#daStage');
+/* Rota de jogos: catálogo. A lista é o que a rota mostra; cada jogo abre em
+   tela cheia e só ali monta os controles dele. Para publicar outro jogo,
+   basta acrescentar um item em GAMES_CATALOG. */
+var GAMES_CATALOG=[
+  {id:'duck-adventure',name:'Duck Adventure',tag:'Plataforma 2D',icon:'🦆',desc:'5 mundos, 10 fases, caixas surpresa, frutas com poderes, água e jacarés.'}
+];
+function gameHost(){return document.getElementById('letrionGameHost')}
+function closeGame(){
+  const host=gameHost();
+  if(!host)return;
+  try{if(window.DA&&window.DA.Game)window.DA.Game.unmount()}catch(_){}
+  host.remove();
+  document.body.classList.remove('gameOpen');
+}
+function openGame(id){
+  if(gameHost())return;
+  const game=GAMES_CATALOG.find(g=>g.id===id);
+  if(!game)return;
+  const host=document.createElement('div');
+  host.id='letrionGameHost';host.className='gameFull';
+  host.innerHTML='<div class="gameFullStage" id="daStage"></div>'+
+    '<button type="button" class="gameExit" data-game-exit aria-label="Sair do jogo">SAIR ✕</button>';
+  document.body.appendChild(host);
+  document.body.classList.add('gameOpen');
+  host.querySelector('[data-game-exit]').addEventListener('click',closeGame);
+  const stage=host.querySelector('#daStage');
   try{
     if(!window.DA||!window.DA.Game)throw new Error('Jogo indisponível');
     window.DA.Game.mount(stage);
   }catch(err){
-    console.error('[LETRION] Duck Adventure',err);
+    console.error('[LETRION] '+game.name,err);
     stage.innerHTML='<div class="card"><p class="muted">Não foi possível carregar o jogo neste aparelho.</p></div>';
   }
 }
+function renderGames(el,u){
+  el.innerHTML='<div class="section"><div><div class="eyebrow">Jogos</div><h2>Escolha seu jogo</h2><p class="muted">Toque em JOGAR para abrir o jogo em tela cheia. Use o botão SAIR para voltar para cá.</p></div></div>'+
+    '<div class="gameList">'+GAMES_CATALOG.map(g=>
+      '<article class="gameCard"><div class="gameCardIcon" aria-hidden="true">'+g.icon+'</div>'+
+      '<div class="gameCardBody"><div class="eyebrow">'+esc(g.tag)+'</div><h3>'+esc(g.name)+'</h3><p>'+esc(g.desc)+'</p></div>'+
+      '<button type="button" class="btn primary" data-game="'+g.id+'">JOGAR</button></article>'
+    ).join('')+'</div>';
+  el.querySelectorAll('[data-game]').forEach(b=>b.addEventListener('click',()=>openGame(b.dataset.game)));
+}
 </script>
+<style id="letrion-games-css">
+/* ===== Jogos: catálogo e tela cheia ===== */
+.gameList{display:grid;gap:14px}
+.gameCard{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.gameCardIcon{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;font-size:28px;background:linear-gradient(145deg,rgba(91,92,240,.18),rgba(255,120,91,.16));border:1px solid var(--line)}
+.gameCardBody h3{margin:3px 0 4px;font-size:20px;letter-spacing:-.02em}
+.gameCardBody p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+.gameCard .btn{min-width:112px}
+@media(max-width:700px){.gameCard{grid-template-columns:52px 1fr;gap:11px;padding:14px}.gameCardIcon{width:52px;height:52px;font-size:23px}.gameCard .btn{grid-column:2;width:100%}}
+/* Tela cheia: o jogo ocupa a tela toda, com SAIR fixo no canto superior direito. */
+body.gameOpen{overflow:hidden}
+/* Com o jogo aberto a interface do app sai de cena: nada dela (nem o menu
+   inferior, que usa z-index 9990 !important) fica por cima do jogo. */
+body.gameOpen .app{visibility:hidden}
+.gameFull{position:fixed;inset:0;z-index:9000;background:#05070F;overflow:hidden;overscroll-behavior:contain}
+.gameFullStage{position:absolute;top:50%;left:50%;width:100vw;height:100vh;transform:translate(-50%,-50%)}
+/* Duck Adventure é um jogo horizontal: em pé no celular o quadro gira 90°. */
+@media(orientation:portrait){.gameFullStage{width:100vh;height:100vw;transform:translate(-50%,-50%) rotate(90deg)}}
+.gameExit{position:absolute;top:10px;right:10px;z-index:9002;min-height:40px;padding:9px 13px;cursor:pointer;border:2px solid #3E4C74;border-radius:10px;background:rgba(20,27,48,.92);color:#F1F4FF;font:900 12px/1 ui-monospace,monospace;letter-spacing:.1em;box-shadow:0 6px 18px rgba(0,0,0,.45)}
+.gameExit:hover{background:#26314F}
+.gameExit:active{transform:translateY(1px)}
+</style>
 </body>
 </html>
 

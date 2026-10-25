@@ -274,8 +274,10 @@
   function resize() {
     if (!S.canvas || !S.stage) { return; }
     const view = S.stage.querySelector('.da-view');
-    const r = view.getBoundingClientRect();
-    const min = Math.min((r.width - 8) / DA.W, (r.height - 8) / DA.H);
+    /* Medidas de layout (não o retângulo na tela): continuam certas quando o
+       quadro do jogo está girado para a tela cheia no celular em pé. */
+    const vw = view.offsetWidth, vh = view.offsetHeight;
+    const min = Math.min((vw - 8) / DA.W, (vh - 8) / DA.H);
     if (min >= 1) {
       const z = Math.max(1, Math.floor(min));
       S.canvas.style.width = (DA.W * z) + 'px';

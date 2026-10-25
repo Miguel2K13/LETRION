@@ -46,10 +46,27 @@ Módulos, na ordem em que `index.html` os carrega:
 (5 mundos × 2 fases, descritos de forma declarativa) ·
 `duck-adventure.js` (motor, estados, telas e controles).
 
-* A rota `games` chama `renderGames(el,u)` (bloco
-  `<script id="letrion-games-route">`), que monta o jogo em `#daStage` com
-  `DA.Game.mount()`. O motor se **desmonta sozinho** quando o `#daStage` sai do
-  DOM (troca de rota), parando o loop e a música.
+* A rota `games` (bloco `<script id="letrion-games-route">`) mostra o **catálogo
+  de jogos** (`GAMES_CATALOG`): `renderGames(el,u)` só desenha os cartões e
+  **não** monta jogo nenhum — por isso o menu Jogos não tem controles. Para
+  publicar outro jogo basta acrescentar um item em `GAMES_CATALOG` e o `id`
+  correspondente em `openGame()`.
+* `openGame(id)` cria `#letrionGameHost.gameFull` no `<body>`: tela cheia, com o
+  botão **SAIR** fixo no canto superior direito (`.gameExit` → `closeGame()`,
+  que chama `DA.Game.unmount()` e remove o host). O jogo monta em `#daStage`,
+  que é o próprio `.gameFullStage`. Os controles de toque (`.da-pad`) só existem
+  enquanto o jogo está montado, dentro da interface do jogo.
+* Com o jogo aberto o `<body>` recebe `.gameOpen`, que esconde a interface do app
+  (`body.gameOpen .app{visibility:hidden}`) e trava o scroll. É necessário porque
+  o menu inferior usa `z-index:9990 !important` e ficaria por cima do jogo.
+* Duck Adventure é horizontal: em `@media (orientation:portrait)` o quadro
+  `.gameFullStage` é girado 90°. Por isso `resize()` mede o `.da-view` com
+  `offsetWidth/offsetHeight` (medida de layout) e não com
+  `getBoundingClientRect()`, que devolveria largura e altura trocadas.
+* O quadro em tela cheia não muda o escalonamento da pixel art: o canvas segue
+  em múltiplos inteiros de 320×180, então em tela estreita o jogo fica no tamanho
+  nativo com faixa escura em volta.
+* O motor se **desmonta sozinho** se o `#daStage` sair do DOM, parando loop e música.
 * Save em `localStorage` (`LETRION_DUCK_ADVENTURE_V1`): fases liberadas,
   recordes e configurações de som/controles.
 * Todo quadro de animação é um par `{R, L}` produzido por `both()`. `Art.duck.idle`
@@ -69,9 +86,10 @@ Módulos, na ordem em que `index.html` os carrega:
 ## Como verificar (não existe suíte de testes)
 1. Abra `http://localhost:3000`, crie uma conta de aluno.
 2. Tela inicial: precisa mostrar o cartão **MISSÃO DE HOJE** com XP/Letrins.
-3. Menu inferior: **Jogos** (ocupou o lugar da Lexi) → Duck Adventure →
-   JOGAR → a fase começa; anda, pula, abre caixa por baixo, pega fruta,
-   nada, derrota jacaré por cima; Esc pausa; sair da rota para a música.
+3. Menu inferior: **Jogos** (ocupou o lugar da Lexi) → catálogo de jogos (sem
+   controles) → JOGAR abre Duck Adventure em tela cheia, com **SAIR** no canto
+   superior direito → JOGAR dentro do jogo → a fase começa; anda, pula, abre
+   caixa por baixo, pega fruta, nada, derrota jacaré por cima; Esc pausa.
 4. Console do navegador sem erros.
 5. Em tela larga a barra superior só oferece **JOGOS**, som, notificações e o chip
    de perfil; o menu inferior (Início/Jornada/Jogos/...) aparece abaixo de 980px.

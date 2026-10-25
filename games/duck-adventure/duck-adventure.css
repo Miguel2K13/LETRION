@@ -110,3 +110,17 @@
 @media (hover:none){
   .da-btn{width:78px;height:64px}
 }
+/* ---------- tela cheia ----------
+   O quadro do jogo (.gameFullStage, definido em index.html) ocupa a tela
+   inteira; aqui o jogo estica para preencher esse quadro. Os controles
+   continuam embaixo do quadro, dentro da interface do próprio jogo. */
+.gameFullStage .da-root{
+  width:100%;
+  max-width:none;
+  height:100%;
+  margin:0;
+  padding-bottom:0;
+  gap:8px;
+}
+.gameFullStage .da-view{flex:1 1 auto;min-height:0}
+.gameFullStage .da-pad{padding:0 8px 8px}
