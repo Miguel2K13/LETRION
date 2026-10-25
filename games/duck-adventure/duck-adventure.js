@@ -274,8 +274,8 @@
   function resize() {
     if (!S.canvas || !S.stage) { return; }
     const view = S.stage.querySelector('.da-view');
-    /* Medidas de layout (não o retângulo na tela): continuam certas quando o
-       quadro do jogo está girado para a tela cheia no celular em pé. */
+    /* Medidas de layout (não o retângulo na tela): independem de qualquer
+       transformação aplicada pelo quadro em tela cheia. */
     const vw = view.offsetWidth, vh = view.offsetHeight;
     const min = Math.min((vw - 8) / DA.W, (vh - 8) / DA.H);
     if (min >= 1) {

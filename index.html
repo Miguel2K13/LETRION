@@ -2365,8 +2365,10 @@ body.gameOpen{overflow:hidden}
 body.gameOpen .app{visibility:hidden}
 .gameFull{position:fixed;inset:0;z-index:9000;background:#05070F;overflow:hidden;overscroll-behavior:contain}
 .gameFullStage{position:absolute;top:50%;left:50%;width:100vw;height:100vh;transform:translate(-50%,-50%)}
-/* Duck Adventure é um jogo horizontal: em pé no celular o quadro gira 90°. */
-@media(orientation:portrait){.gameFullStage{width:100vh;height:100vw;transform:translate(-50%,-50%) rotate(90deg)}}
+/* Duck Adventure é um jogo horizontal (canvas 16:9). O quadro é a tela toda e o
+   jogo fica centralizado, com a tela na horizontal mesmo com o aparelho em pé;
+   os controles ficam embaixo, ao alcance dos polegares. Com o aparelho deitado
+   o quadro já é 100vw×100vh e o jogo preenche a tela. */
 .gameExit{position:absolute;top:10px;right:10px;z-index:9002;min-height:40px;padding:9px 13px;cursor:pointer;border:2px solid #3E4C74;border-radius:10px;background:rgba(20,27,48,.92);color:#F1F4FF;font:900 12px/1 ui-monospace,monospace;letter-spacing:.1em;box-shadow:0 6px 18px rgba(0,0,0,.45)}
 .gameExit:hover{background:#26314F}
 .gameExit:active{transform:translateY(1px)}

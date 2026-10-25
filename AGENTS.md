@@ -59,10 +59,14 @@ Módulos, na ordem em que `index.html` os carrega:
 * Com o jogo aberto o `<body>` recebe `.gameOpen`, que esconde a interface do app
   (`body.gameOpen .app{visibility:hidden}`) e trava o scroll. É necessário porque
   o menu inferior usa `z-index:9990 !important` e ficaria por cima do jogo.
-* Duck Adventure é horizontal: em `@media (orientation:portrait)` o quadro
-  `.gameFullStage` é girado 90°. Por isso `resize()` mede o `.da-view` com
-  `offsetWidth/offsetHeight` (medida de layout) e não com
-  `getBoundingClientRect()`, que devolveria largura e altura trocadas.
+* Duck Adventure é horizontal (canvas 16:9): o quadro `.gameFullStage` ocupa a
+  tela toda e o jogo fica centralizado, com a tela na horizontal mesmo com o
+  aparelho em pé, e os controles embaixo. **Nada de girar o quadro 90°** — a
+  versão anterior rotacionava em `orientation:portrait` e o resultado era um
+  jogo deitado, com os botões do menu ilegíveis, exigindo virar o aparelho.
+  Com o aparelho deitado o quadro é 100vw×100vh e o canvas sobe para múltiplos
+  maiores. `resize()` mede o `.da-view` com `offsetWidth/offsetHeight`
+  (medida de layout).
 * O quadro em tela cheia não muda o escalonamento da pixel art: o canvas segue
   em múltiplos inteiros de 320×180, então em tela estreita o jogo fica no tamanho
   nativo com faixa escura em volta.
