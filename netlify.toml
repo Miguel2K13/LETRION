@@ -1,0 +1,9 @@
+[build]
+  command = "sh scripts/build-site.sh"
+  publish = "dist"
+
+# O app é uma única página com roteamento próprio (hash); qualquer rota serve o HTML.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

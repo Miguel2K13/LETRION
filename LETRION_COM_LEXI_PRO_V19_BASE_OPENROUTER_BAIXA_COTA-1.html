@@ -2350,7 +2350,7 @@ loadLetrionBank().then(()=>{prime();if(user()){ensureDailyPackage(user());render
    OpenRouter, mantendo exatamente 8 questões A-D e o currículo do ano/bimestre.
 */
 (function(){
-  const OR_KEY="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";
+  const OR_KEY="";
   const OR_ENDPOINT="https://openrouter.ai/api/v1/chat/completions";
   const OR_MODEL="openai/gpt-4o-mini";
   const OR_STORE="LETRION_OPENROUTER_AI_LESSONS_V1";
@@ -2411,6 +2411,7 @@ FORMATO:
     return normalizeLesson(JSON.parse(cleaned),u,index);
   }
   async function generateCurrent(u){
+    if(!OR_KEY)return null;
     if(!u||u.role!=='student'||generating)return null;
     const pkg=typeof v4Current==='function'?v4Current(u):null;
     if(!pkg||pkg.status!=='active'||!pkg.lessons?.[0])return null;
@@ -2439,8 +2440,8 @@ FORMATO:
 </script>
 <script>
 (function(){
-  const API_KEY="AQ.Ab8RN6Kvc7DjlVq1wxtzZQBDmw1xwb3PO4kI-pyCmVHz2c8BMw";
-  const OR_LEXI_KEY="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";
+  const API_KEY="";
+  const OR_LEXI_KEY="";
   const MODEL="gemini-3.5-flash-lite";
   const ENDPOINT="https://generativelanguage.googleapis.com/v1beta/models/"+MODEL+":streamGenerateContent?alt=sse";
   const SYSTEM=`Você é Lexi, assistente de Língua Portuguesa do LETRION. Responda somente sobre Português. Fora desse tema, diga: "Não vou responder a esse assunto porque meu foco é Língua Portuguesa." Seja direta, clara e didática. Não entregue gabarito; ensine o raciocínio. Não use Markdown, asteriscos, hashtags ou crases. Use [[trecho]] somente para destacar algo importante; a interface deixará roxo e sublinhado. Não crie questão interativa em toda resposta: só quando o aluno pedir, estiver estudando por exercício, ou quando uma questão for realmente necessária para verificar a compreensão. Quando criar uma questão, use somente <LEXI_QUESTION>JSON</LEXI_QUESTION>. Nunca use esse marcador para uma resposta comum.`;
@@ -2600,6 +2601,7 @@ FORMATO:
   };
   window.sendLexiMessage=async function(){
     const input=document.getElementById('lexiInput'),btn=document.getElementById('lexiSend'),q=input.value.trim(); if(!q||busy)return;
+    if(!API_KEY&&!OR_LEXI_KEY){add('user',q);const unavailable=showLoading();unavailable.classList.remove('is-loading');unavailable.textContent='A Lexi está desativada nesta versão publicada do LETRION.';return}
     if(typeof window.LETRION_LEXI_NAV_COMMAND==='function' && /\b(abra|abrir|ir para|me leve|volte para|voltar para|mostre)\b/i.test(q)){
       const moved=await window.LETRION_LEXI_NAV_COMMAND(q);
       if(moved){input.value='';closeDeep();add('user',q);const out=showLoading();out.classList.remove('is-loading');out.textContent='Pronto. Abri a tela solicitada.';return;}
@@ -2647,6 +2649,7 @@ FORMATO:
     window.openLexi();
     const box=document.getElementById('lexiMessages');
     box.innerHTML='';
+    if(!OR_LEXI_KEY){const notice=document.createElement('div');notice.className='lexi-lesson-card';notice.innerHTML='<div class="lexi-lesson-kicker">LIÇÃO LEXI</div><div class="lexi-lesson-q">A geração de lições por IA está desativada nesta versão publicada.</div>';box.appendChild(notice);return}
     const modules=(TOPICS[String(u.year)]?.[Number(u.bimestre)]||[]);
     const topicText=modules.map((x,i)=>`${i+1}. ${x[0]} — ${x[1]}`).join('\n');
     const header=document.createElement('div');header.className='lexi-lesson-card lexi-transition';

@@ -4,8 +4,8 @@ services:
     ports:
       - "3000:80"
     volumes:
-      - ./LETRION_COM_LEXI_PRO_V19_BASE_OPENROUTER_BAIXA_COTA-1.html:/usr/share/nginx/html/index.html:ro
-      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./:/site:ro
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf:ro
     restart: on-failure
     healthcheck:
       test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/ || exit 1"]
