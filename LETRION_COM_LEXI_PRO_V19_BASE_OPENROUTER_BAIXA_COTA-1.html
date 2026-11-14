@@ -3124,4 +3124,214 @@ FORMATO:
 <style>
 /* Transição discreta entre telas, sem alterar a estrutura do perfil. */
 .journeyLessonCard{transition:transform .2s ease,opacity .2s ease,border-color .2s ease,box-shadow .2s ease}.journeyLessonCard.isAvailable{box-shadow:0 0 24px rgba(91,92,240,.12)}
+</style><style id="letrion-ui-polish">
+/* =============================================================
+   LETRION — acabamento visual e animações
+   Camada apenas de aparência/movimento: não altera nenhuma regra
+   de negócio, rota ou dado. Carregada por último para vencer a cascata.
+   ============================================================= */
+:root{--ui-ease:cubic-bezier(.22,.9,.28,1);--ui-spring:cubic-bezier(.34,1.4,.64,1);--ui-accent:#45a9ff}
+html{scroll-behavior:smooth}
+
+/* ---------- fundo ambiente (aurora suave) ---------- */
+body::before{content:"";position:fixed;inset:-30% -20%;z-index:0;pointer-events:none;
+  background:radial-gradient(34% 30% at 20% 10%,rgba(56,140,255,.22),transparent 70%),
+             radial-gradient(30% 28% at 84% 24%,rgba(126,86,255,.18),transparent 72%),
+             radial-gradient(38% 32% at 50% 98%,rgba(32,215,161,.12),transparent 74%);
+  filter:blur(24px);opacity:.9;animation:uiAurora 26s ease-in-out infinite alternate}
+.app,.auth{position:relative;z-index:1}
+@keyframes uiAurora{0%{transform:translate3d(-2%,-1%,0) scale(1)}50%{transform:translate3d(2%,2%,0) scale(1.07)}100%{transform:translate3d(-1%,3%,0) scale(1.03)}}
+
+/* ---------- entrada de conteúdo ---------- */
+@keyframes uiRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes uiPopIn{0%{opacity:0;transform:scale(.92)}100%{opacity:1;transform:none}}
+#content.ui-anim>*,#root.ui-anim>*{animation:uiRise .52s var(--ui-ease) both;animation-delay:calc(var(--ui-i,0) * 65ms)}
+
+/* ---------- cabeçalho ---------- */
+.top{transition:background .3s var(--ui-ease),box-shadow .3s var(--ui-ease),border-color .3s var(--ui-ease)}
+.top.is-scrolled{background:rgba(4,16,30,.95);border-bottom-color:rgba(111,184,255,.3);box-shadow:0 16px 36px rgba(0,0,0,.36)}
+.pageTitle:before{background-image:linear-gradient(90deg,#fff 0%,#9fdcff 35%,#fff 60%,#9fdcff 100%);background-size:250% 100%;animation:uiShine 8s linear infinite}
+@keyframes uiShine{to{background-position:250% 0}}
+.dot{animation:uiDot 1.9s ease-in-out infinite}
+@keyframes uiDot{0%,100%{box-shadow:0 0 0 0 rgba(69,169,255,.55)}60%{box-shadow:0 0 0 7px rgba(69,169,255,0)}}
+.topRight .icon{transition:transform .22s var(--ui-spring),border-color .22s,background .22s,box-shadow .22s}
+.topRight .icon:hover{transform:translateY(-2px);border-color:rgba(105,197,255,.6);box-shadow:0 8px 20px rgba(30,120,200,.22)}
+
+/* ---------- títulos ---------- */
+.section>div:first-child>.eyebrow{display:inline-flex;align-items:center;gap:7px}
+.section>div:first-child>.eyebrow:before{content:"";width:18px;height:2px;border-radius:2px;background:linear-gradient(90deg,#45a9ff,rgba(69,169,255,0))}
+.section h2{background:linear-gradient(96deg,#ffffff 0%,#c9e7ff 55%,#7cc8ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dailyHeroTitle span{background:linear-gradient(96deg,#7ed3ff,#3ea6ff 60%,#8f9bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;border:1px solid rgba(93,186,255,.22);box-shadow:0 22px 60px rgba(0,0,0,.3)}
+.hero:before{content:"";position:absolute;inset:-45% -15%;z-index:0;pointer-events:none;
+  background:conic-gradient(from 140deg at 50% 50%,rgba(69,169,255,.24),transparent 28%,rgba(32,215,161,.16) 52%,transparent 68%,rgba(126,86,255,.22));
+  filter:blur(48px);opacity:.6;animation:uiSpin 24s linear infinite}
+@keyframes uiSpin{to{transform:rotate(360deg)}}
+.hero h3{background:linear-gradient(100deg,#ffffff,#a9dcff 70%,#7cc8ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>*{position:relative;z-index:1}
+
+/* ---------- cartões ---------- */
+.card{position:relative;background-image:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,0) 46%);
+  transition:transform .28s var(--ui-ease),border-color .28s var(--ui-ease),box-shadow .28s var(--ui-ease)}
+@media (hover:hover){.card:hover{transform:translateY(-3px);border-color:rgba(93,186,255,.34);box-shadow:0 24px 50px rgba(0,0,0,.34),0 0 0 1px rgba(93,186,255,.1)}}
+.stat{background-image:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,0) 62%);
+  transition:transform .25s var(--ui-spring),border-color .25s var(--ui-ease),box-shadow .25s var(--ui-ease)}
+@media (hover:hover){.stat:hover{transform:translateY(-3px);border-color:rgba(93,186,255,.32);box-shadow:0 14px 28px rgba(0,0,0,.26)}}
+.dailySummary{box-shadow:0 22px 60px rgba(0,0,0,.3),0 0 42px rgba(37,221,178,.06)}
+
+/* ---------- barras de progresso ---------- */
+.fill{position:relative;overflow:hidden;transition:width .9s var(--ui-ease)}
+.fill:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 25%,rgba(255,255,255,.42) 50%,transparent 75%);
+  transform:translateX(-110%);animation:uiSheen 3s ease-in-out infinite}
+@keyframes uiSheen{0%{transform:translateX(-110%)}55%,100%{transform:translateX(115%)}}
+
+/* ---------- botões ---------- */
+.btn{position:relative;overflow:hidden;transition:transform .2s var(--ui-spring),background .2s var(--ui-ease),box-shadow .2s var(--ui-ease)}
+.btn:after{content:"";position:absolute;top:0;left:-130%;width:55%;height:100%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);transform:skewX(-18deg);transition:left .6s var(--ui-ease)}
+@media (hover:hover){.btn:hover:after{left:140%}}
+.btn:active:not(:disabled){transform:translateY(0) scale(.97)}
+.btn.ghost:after,.btn.secondary:after{background:linear-gradient(100deg,transparent,rgba(105,197,255,.22),transparent)}
+.chip{transition:transform .2s var(--ui-spring),background .2s var(--ui-ease)}
+@media (hover:hover){.chip:hover{transform:translateY(-1px)}}
+
+/* ---------- lições da jornada ---------- */
+.journeyLessonCard,.dailyLessonCard{transition:transform .26s var(--ui-ease),border-color .26s var(--ui-ease),box-shadow .26s var(--ui-ease),opacity .26s var(--ui-ease)}
+.journeyLessonCard.isAvailable{animation:uiHalo 4.2s ease-in-out infinite}
+@keyframes uiHalo{0%,100%{box-shadow:0 0 0 1px rgba(69,169,255,.14),0 18px 42px rgba(0,0,0,.26)}50%{box-shadow:0 0 0 1px rgba(69,169,255,.34),0 24px 54px rgba(12,86,158,.34)}}
+@media (hover:hover){.journeyLessonCard.isAvailable:hover{transform:translateY(-3px)}}
+.journeyLessonCard.isDone{border-color:rgba(32,215,161,.32)}
+
+/* ---------- navegação inferior ---------- */
+.mobileNav{box-shadow:0 -18px 44px rgba(0,0,0,.42),inset 0 1px 0 rgba(126,196,255,.09)}
+.mobileBtn{position:relative;transition:transform .24s var(--ui-spring),color .22s var(--ui-ease),background .22s var(--ui-ease)}
+.mobileBtn:active{transform:scale(.93)}
+.mobileBtn.active{background:linear-gradient(180deg,rgba(37,139,227,.26),rgba(37,139,227,.06));box-shadow:inset 0 0 0 1px rgba(80,180,255,.32),0 6px 18px rgba(20,110,190,.22)}
+.mobileBtn.active:after{content:"";position:absolute;top:3px;left:50%;width:20px;height:3px;border-radius:99px;
+  background:#69c5ff;box-shadow:0 0 12px rgba(105,197,255,.85);transform:translateX(-50%)}
+.lexi-navBtn .mobileIcon{background:linear-gradient(145deg,#6a4bff,#9a70ff);color:#fff;box-shadow:0 0 20px rgba(122,90,255,.5);animation:uiFab 3.4s ease-in-out infinite}
+@keyframes uiFab{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+
+/* ---------- modais e avisos ---------- */
+.overlay.open .modal{animation:uiModalIn .3s var(--ui-ease) both}
+@keyframes uiModalIn{from{opacity:0;transform:translateY(18px) scale(.975)}to{opacity:1;transform:none}}
+.lexi-modal.open .lexi-shell{animation:uiModalIn .34s var(--ui-ease) both}
+.toast{animation:uiToastIn .34s var(--ui-spring) both;border-color:rgba(93,186,255,.24)}
+@keyframes uiToastIn{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
+
+/* ---------- tela de acesso ---------- */
+.auth{background-image:radial-gradient(circle at 8% 10%,rgba(91,92,240,.32),transparent 36%),radial-gradient(circle at 92% 90%,rgba(32,215,161,.18),transparent 32%),radial-gradient(circle at 50% 50%,rgba(24,32,56,.2),transparent 60%)}
+.authCard{animation:uiRise .6s var(--ui-ease) both;box-shadow:0 34px 90px rgba(0,0,0,.45);border-color:rgba(120,160,255,.18)}
+.authVisual:before{content:"";position:absolute;inset:-10%;z-index:0;pointer-events:none;
+  background:radial-gradient(circle at 72% 22%,rgba(255,255,255,.2),transparent 46%),radial-gradient(circle at 18% 82%,rgba(32,215,161,.22),transparent 46%),radial-gradient(circle at 50% 60%,rgba(126,86,255,.28),transparent 55%);
+  animation:uiAurora 18s ease-in-out infinite alternate}
+.authVisual>*{position:relative;z-index:1}
+.authPanel{animation:uiRise .62s var(--ui-ease) .1s both}
+.pillLight{transition:transform .24s var(--ui-spring),background .24s var(--ui-ease),border-color .24s}
+.pillLight:hover{transform:translateY(-2px);background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.34)}
+.tab{transition:color .2s var(--ui-ease),border-color .2s var(--ui-ease)}
+.field input,.field select,.field textarea{transition:border-color .2s var(--ui-ease),box-shadow .2s var(--ui-ease),background .2s var(--ui-ease)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(105,197,255,.6);box-shadow:0 0 0 4px rgba(69,169,255,.14)}
+
+/* ---------- foco visível ---------- */
+:focus-visible{outline:2px solid rgba(105,197,255,.8);outline-offset:2px}
+
+/* ---------- barras de rolagem ---------- */
+@media (min-width:701px){*{scrollbar-width:thin;scrollbar-color:rgba(93,186,255,.35) transparent}
+  ::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:rgba(93,186,255,.3);border-radius:99px;border:2px solid transparent;background-clip:content-box}}
+
+/* ---------- respeita preferência de movimento ---------- */
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+html.reduce-motion *,html.reduce-motion *:before,html.reduce-motion *:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+html.reduce-motion{scroll-behavior:auto}
 </style>
+<script id="letrion-ui-motion">
+/* Camada de movimento da UI: entradas suaves, barras animadas e
+   cabeçalho com sombra ao rolar. Observa apenas o DOM; não altera
+   estado, rotas ou dados da aplicação. */
+(function(){
+  var doc=document.documentElement;
+  var prefersReduce=function(){try{return matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){return false}};
+  var shouldReduce=function(){
+    try{if(typeof State!=='undefined'&&State.settings&&State.settings.reduceMotion)return true}catch(e){}
+    return prefersReduce();
+  };
+  var syncMotion=function(){doc.classList.toggle('reduce-motion',shouldReduce())};
+
+  /* Aproveita o applyTheme() chamado a cada render para refletir a
+     preferência de movimento salva nas configurações do app. */
+  if(typeof window.applyTheme==='function'){
+    var baseTheme=window.applyTheme;
+    window.applyTheme=function(){var r=baseTheme.apply(this,arguments);syncMotion();return r};
+  }
+  syncMotion();
+
+  var hostOf=function(){return document.getElementById('content')||document.getElementById('root')};
+  var routeOf=function(){try{return (typeof UI!=='undefined'&&UI.route)||''}catch(e){return ''}};
+  var signature=function(){
+    var h=hostOf();
+    if(!h)return '';
+    return routeOf()+'|'+h.children.length+'|'+h.innerHTML.length;
+  };
+
+  var animating=null;
+  function animate(){
+    if(shouldReduce())return;
+    var host=hostOf();
+    if(!host)return;
+    var kids=[].slice.call(host.children);
+    kids.forEach(function(el,i){el.style.setProperty('--ui-i',Math.min(i,6))});
+    host.classList.remove('ui-anim');
+    void host.offsetWidth;
+    host.classList.add('ui-anim');
+    clearTimeout(animating);
+    animating=setTimeout(function(){host.classList.remove('ui-anim')},1400);
+  }
+
+  function animateBars(){
+    if(shouldReduce())return;
+    var host=hostOf();
+    if(!host)return;
+    [].slice.call(host.querySelectorAll('.fill')).forEach(function(f){
+      var target=f.style.width;
+      if(!target||target==='0%')return;
+      f.style.width='0%';
+      void f.offsetWidth;
+      f.style.width=target;
+    });
+  }
+
+  var lastRoute=routeOf();
+  var lastSig=signature();
+  var queued=false;
+
+  function refresh(){
+    queued=false;
+    var route=routeOf();
+    var sig=signature();
+    var structural=sig!==lastSig;
+    var changedRoute=route!==lastRoute;
+    lastSig=sig;lastRoute=route;
+    if(!structural&&!changedRoute)return;
+    /* A tela de exercício já tem animações próprias por questão: não
+       repete a entrada inteira a cada resposta. */
+    if(route==='player'&&!changedRoute)return;
+    animate();
+    animateBars();
+  }
+
+  var scheduled=function(){if(queued)return;queued=true;requestAnimationFrame(refresh)};
+  var rootNode=document.getElementById('root');
+  if(rootNode){new MutationObserver(scheduled).observe(rootNode,{childList:true,subtree:true})}
+
+  /* sombra do cabeçalho ao rolar (o .top é recriado a cada render) */
+  var onScroll=function(){
+    var top=document.querySelector('.top');
+    if(top)top.classList.toggle('is-scrolled',(window.scrollY||0)>6);
+  };
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>

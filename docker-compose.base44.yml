@@ -1,0 +1,19 @@
+# Base44 dev environment for the single-file LETRION app.
+# The whole app is one self-contained HTML file (no build step), so it is
+# served directly from the cloned source via a bind mount: edits show up on
+# reload without rebuilding any image.
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "3000:80"
+    volumes:
+      - ./LETRION_COM_LEXI_PRO_V19_BASE_OPENROUTER_BAIXA_COTA-1.html:/usr/share/nginx/html/index.html:ro
+      - ./base44/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
