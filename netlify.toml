@@ -1,0 +1,11 @@
+# Netlify — LETRION é um único arquivo HTML autocontido.
+# O build apenas publica esse arquivo como index.html na pasta de saída.
+[build]
+  command = "mkdir -p public && cp LETRION_COM_LEXI_PRO_V19_BASE_OPENROUTER_BAIXA_COTA-1.html public/index.html"
+  publish = "public"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
